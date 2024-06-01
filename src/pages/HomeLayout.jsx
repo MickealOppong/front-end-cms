@@ -15,7 +15,7 @@ const HomeLayout = () => {
   const isLoading = navigation.state === 'submitting'
 
   return <main className={`flex `}>
-    <div className={`${showSidebar ? 'w-80' : 'w-0'} duration-300`}>
+    <div className={`${showSidebar ? 'w-0 lg:w-80' : 'w-0'} duration-300`}>
       <div className={` hidden lg:flex overflow-y-scroll no-scrollbar  `}>
         <SidebarContainer />
       </div>
@@ -27,7 +27,7 @@ const HomeLayout = () => {
 
     <div className={` flex flex-col w-full`} >
       <Navbar />
-      <div className={`flex bg-green-100  min-h-[100vh] max-h-[1170px] sticky top-20  overflow-y-scroll no-scrollbar`}>{
+      <div className={`flex bg-slate-100  min-h-[100vh] max-h-[1170px] sticky top-20  overflow-y-scroll no-scrollbar`}>{
         isLoading ?
           <Loading /> : <Outlet />
       }
