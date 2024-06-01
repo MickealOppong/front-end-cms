@@ -19,7 +19,7 @@ const HomeLayout = () => {
       <div className={` hidden lg:flex overflow-y-scroll no-scrollbar  `}>
         <SidebarContainer />
       </div>
-      <div className="lg:hidden absolute top-0 left-0
+      <div className="lg:hidden absolute top-0 left-0  overflow-y-scroll no-scrollbar 
        z-[100]">
         <SmallSidebar />
       </div>

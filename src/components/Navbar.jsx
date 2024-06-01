@@ -73,7 +73,7 @@ const Navbar = () => {
     }
     return name;
   }
-  return <nav className={` flex py-4 px-8 h-20 items-center justify-between bg-white z-50`}>
+  return <nav className={` flex py-4 px-8 h-20 items-center  bg-white z-50`}>
     {/** TOGGLE BUTTON */}
     <div className="flex  text-3xl text-c4 font-bold " >
       <button onClick={() => dispatch(toggle())}><FaBarsStaggered /></button>
@@ -88,7 +88,7 @@ const Navbar = () => {
       <CurrencySelect data={['USD', 'GBP', 'PLN', 'EUR', 'GHS']} size={'w-24'} name={'currency'} defaultValue={iso} />
     </form>
     {/** USER INFO */}
-    <div className="relative pr-24">
+    <div className="relative lg:pr-24">
       <div className="capitalize flex  items-center gap-x-2">
         <img src={user?.image || defImg} className="w-10 h-10 rounded-full" />
         <div onClick={() => setShowMenu(!showMenu)} className="flex  items-center text-sky-500">
