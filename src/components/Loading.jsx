@@ -1,6 +1,7 @@
 const Loading = () => {
-  return <section className="flex justify-center mt-1/2 h-[50vh]">
-    <div className="w-24 h-24 rounded-full border-l-2 border-cyan-700 animate-spin">
+  return <section className="flex justify-center items-center max-w-xl mx-auto
+  ">
+    <div className="w-36 h-36 rounded-full border-2 font-bold border-cyan-700 animate-spin">
 
     </div>
   </section>

@@ -2,9 +2,9 @@ import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { FiDisc } from "react-icons/fi";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toggle } from "../features/sidebar/sidebarSlice";
-const MenuItem = ({ icon, title, id, links }) => {
+const SmallSidebarMenuItem = ({ icon, title, id, links }) => {
   const [showLink, setShowLink] = useState(true);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -30,13 +30,13 @@ const MenuItem = ({ icon, title, id, links }) => {
         links.map((link) => {
           const { id, menu, url } = link;
           return <div className="flex flex-col px-8 my-2  w-56" key={id}>
-            <Link to={url} className="flex items-center gap-x-2 capitalize text-sm list-disc  w-56">
+            <button onClick={() => navigateToRoute(url)} className="flex items-center gap-x-2 capitalize text-sm list-disc  w-56">
               <FiDisc className="text-[5px]" />
-              <p className="text-gray-500 font-semibold">{menu}</p></Link>
+              <p className="text-gray-500 font-semibold">{menu}</p></button>
           </div>
         })
       }
     </ul>
   </div>
 }
-export default MenuItem
+export default SmallSidebarMenuItem

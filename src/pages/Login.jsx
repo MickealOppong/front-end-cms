@@ -1,7 +1,7 @@
 import { CiUser } from "react-icons/ci";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
-import { Form, Link, redirect, useNavigate } from "react-router-dom";
+import { Form, Link, redirect, useNavigate, useNavigation } from "react-router-dom";
 import { loginUser } from "../features/user/userSlice";
 import { customFetch } from "../util";
 
@@ -32,7 +32,8 @@ export const action = (store) => async ({ request }) => {
 const Login = () => {
   const dispatch = useDispatch()
   const navigate = useNavigate();
-
+  const navigation = useNavigation();
+  const isLoading = navigation.state === 'submitting';
 
   const loginGuestUser = async () => {
     const data = {
@@ -68,14 +69,18 @@ const Login = () => {
         <RiLockPasswordLine />
         <input type="password" className="grow h-8 outline-none" placeholder="Password" name="password" />
       </label>
-      <div>
-        <button className="bg-primary text-gray-300 w-full h-12 uppercase rounded-md " >
-          login
+      <div className="">
+        <button className=" bg-primary text-gray-300 w-full h-12 uppercase rounded-md " disabled={isLoading}>
+          <span>{isLoading ? <span className="loading loading-spinner loading-xs"></span> : <span className="px-4">login</span>}</span>
         </button>
       </div>
     </Form>
-    <div className="mt-4">
-      <button className="bg-secondary text-gray-300 w-full h-12 uppercase rounded-md" onClick={() => loginGuestUser()}>login as guest</button>
+    <div className="flex items-center mt-4">
+      <button className=" bg-secondary text-gray-300 w-full h-12 uppercase rounded-md" onClick={() => loginGuestUser()} disabled={isLoading}>
+        <span>{isLoading ? <span className="loading loading-spinner loading-xs"></span> : <span className="
+        ml-8">login as guest</span>}</span>
+
+      </button>
     </div>
     <div className="flex gap-x-1 mt-6">
       <p className="text-accent">Not yet registered?</p>
