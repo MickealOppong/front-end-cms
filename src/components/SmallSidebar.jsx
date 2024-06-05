@@ -8,7 +8,7 @@ const SmallSidebar = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
   const dispatch = useDispatch();
 
-  return <aside className={`flex flex-col p-8 gap-y-8 w-64 mt-24`}>
+  return <aside className={`flex flex-col p-8 gap-y-8 w-64 mt-24 h-full`}>
     <div className="flex flex-col">
       <div className="">
         <SectionTitle title='main home' style='uppercase text-xs text-gray-400 mb-4 font-semibold' />
