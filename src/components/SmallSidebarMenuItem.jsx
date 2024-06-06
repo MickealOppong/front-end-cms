@@ -20,7 +20,7 @@ const SmallSidebarMenuItem = ({ icon, title, id, links }) => {
       <input type="radio" name="my-accordion-3" defaultChecked />
       <div className="collapse-title text-sm capitalize font-medium  ">
         <div className="flex items-center gap-x-2">
-          <span className="text-md">{icon}</span>
+          <span className="text-xl">{icon}</span>
           <h2 className="text-md">{title}</h2>
         </div>
       </div>

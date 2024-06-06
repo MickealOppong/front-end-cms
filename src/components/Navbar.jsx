@@ -73,7 +73,7 @@ const Navbar = () => {
     }
     return name;
   }
-  return <nav className={`fixed top-0 left-0 right-0 lg:sticky flex py-4 px-8 h-20 items-center justify-between bg-white z-50`}>
+  return <nav className={`fixed top-0 left-0 right-0 lg:sticky flex py-4 px-8 h-20 items-center justify-between bg-white z-50 border-b-2`}>
     {/** TOGGLE BUTTON */}
     <div className="flex  text-3xl text-c4 font-bold justify-start " >
       <button onClick={() => dispatch(toggle())}><FaBarsStaggered /></button>

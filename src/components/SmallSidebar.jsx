@@ -8,7 +8,7 @@ const SmallSidebar = () => {
   const dispatch = useDispatch();
 
 
-  return <aside className={`flex flex-col p-8 gap-y-8 w-80 mt-24 h-full shadow-xl`}>
+  return <aside className={`flex flex-col p-8 gap-y-8 w-80 mt-24 h-full`}>
     <div className="flex flex-col">
       <div className="">
         <SectionTitle title='main home' style='uppercase text-xs text-gray-400 mb-4 font-semibold' />
