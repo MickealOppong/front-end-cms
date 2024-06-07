@@ -46,23 +46,23 @@ const Products = () => {
   }
 
 
-  return <section className={`mt-8 w-full px-16 h-[300vh] `
+  return <section className={`mt-36 lg:mt-8 w-full px-14 `
   }>
-    <div className="flex bg-white justify-between p-4 border-2 rounded-md mr-8">
-      <Form className="flex items-center gap-x-4 px-4">
+    <div className="flex bg-white gap-x-2 md:justify-between p-4 border-2 rounded-md w-[80vw]">
+      <Form className="flex items-center  gap-x-4 px-4 w-full">
         {/**PAGE SIZE  */}
-        <div className="flex gap-x-2 items-center">
+        <div className="gap-x-2 items-center hidden md:flex">
           <span className="text-slate-400">showing</span>
           <SimpleSelect size={'w-16'} data={[5, 10, 15, 20]} defaultValue={pageSize} name={'pageSize'} />
         </div>
         {/**SEARCH */}
-        <div className="flex items-center border-2 p-2 rounded-md">
-          <input type="search" name='name' placeholder="Search products" className=" w-[20vw] outline-none indent-2 " />
+        <div className="flex items-center border-2 p-2 rounded-md -ml-4 md:ml-0 w-full">
+          <input type="search" name='name' placeholder="Search products" className=" w-full outline-none indent-2 " />
           <button className="ml-2"><FaSearch className="text-slate-400" /></button>
         </div>
       </Form>
       {/**ADD NEW */}
-      <Link className="flex items-center btn btn-ghost border-cyan-700  w-36 hover:bg-primary hover:text-gray-200 " to='/addProduct'>
+      <Link className="flex items-center btn btn-ghost border-cyan-700 md:w-36 hover:bg-primary hover:text-gray-200 " to='/addProduct'>
         <FaPlus />
         <span>Add new</span>
       </Link>

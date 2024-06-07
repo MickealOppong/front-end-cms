@@ -7,7 +7,7 @@ const SmallSidebarContainer = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
   const dispatch = useDispatch()
 
-  return <section className={`absolute top-0 bottom-0 left-0 z-[101] bg-white h-[1170px] border-2 `} >
+  return <section className={`absolute top-0 bottom-0 left-0 z-[101] bg-white h-[100vh] border-2 `} >
     <nav className={`flex items-center justify-between h-20 fixed top-0 left-0 w-80  z-[100] bg-white`} >
       <h2 className=" px-8 text-3xl text-c4 font-bold">pay.co</h2>
       {/** TOGGLE BUTTON */}

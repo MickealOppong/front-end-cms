@@ -30,11 +30,11 @@ const SingleProduct = ({
 
   return <article className="relative" onMouseOver={() => setShowItems(true
   )} onMouseLeave={() => setShowItems(false)}>
-    <div className={`flex flex-col bg-white w-90 items-center p-8`} >
+    <div className={`flex flex-col bg-white w-[80vw] md:w-80 items-center p-4`} >
       <div className="flex items-center gap-x-2 text-emerald-500">
-        <img src={images[0]} className="w-80 h-60" />
+        <img src={images[0]} className="w-[80vw] md:w-80 h-60" />
       </div>
-      <div className="flex flex-col gap-y-2">
+      <div className="flex flex-col gap-y-2 bg-green-100 w-full p-4">
         <p>{name}</p>
         <div className="flex items-center gap-x-2">
           <span>tags :</span>
@@ -47,7 +47,7 @@ const SingleProduct = ({
             }
           </div>
         </div>
-        <div className="flex justify-between items-center w-56">
+        <div className="flex justify-between items-center w-full">
           <div className="flex items-center gap-x-2">
             <span className="text-gray-400">Stock :</span>
             <p className="text-gray-400">{quantity}</p>

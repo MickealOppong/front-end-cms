@@ -67,7 +67,7 @@ export const links = [
     links: [
       { id: nanoid(), menu: 'all users', url: 'users' },
       { id: nanoid(), menu: 'add new user', url: 'addUser' },
-      { id: nanoid(), menu: 'login', url: '' },
+      { id: nanoid(), menu: 'login', url: '/login' },
       { id: nanoid(), menu: 'sign up', url: 'register' },
     ]
   }, {
