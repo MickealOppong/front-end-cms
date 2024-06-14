@@ -31,12 +31,12 @@ export const action = (store, queryClient) => async ({ request, params }) => {
 const AddRate = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
 
-  return <div className={`flex flex-col items-center mt-8 h-[65vh] ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8 `
+  return <div className={`flex flex-col items-center mt-24 lg:mt-8 h-[100vh] max-w-6xl mx-auto px-8`
   }>
     <div className="text-black font-semibold uppercase mb-8 w-[60vw]">
       <h2>add fx rates</h2>
     </div>
-    <Form method="post" className="flex flex-col bg-white p-16 gap-y-8 border-2 w-[60vw] " encType="multipart/form-data" >
+    <Form method="post" className="flex flex-col bg-white p-16 gap-y-8 border-2 w-full " encType="multipart/form-data" >
       {/**CURRENCY DATE */}
       <FormInputMandate label='Date' name='date' type='date' placeholder='Enter currency date' size={'w-[50vw]'} />
       {/**FX RATE */}

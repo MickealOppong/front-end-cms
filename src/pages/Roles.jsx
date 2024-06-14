@@ -37,7 +37,7 @@ export const loader = (store, queryClient) => async ({ request }) => {
 }
 const Roles = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
-  return <section className={`mt-8 ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'}  px-8 h-[90vh] `
+  return <section className={`mt-24 lg:mt-8  w-11/12 max-w-6xl mx-auto h-[100vh] px-2  `
   }>
     <div className={`text-black tracking-wider font-semibold uppercase mb-8 `}>
       <h2>Role List</h2>

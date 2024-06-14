@@ -12,7 +12,7 @@ const CreateRoles = () => {
   const token = useSelector((state) => state.userState.token)
   const navigate = useNavigate();
   const width = () => {
-    return `w-[30vw]  ${showSidebar ? 'lg:w-[70vw]' : 'lg:w-[90vw] '}`
+    return ` w-11/12 max-w-6xl mx-auto h-[100vh] px-2`
   }
   const queryClient = useQueryClient();
   const { mutate: createRole } = useMutation({
@@ -89,7 +89,7 @@ const CreateRoles = () => {
   }
 
 
-  return <section className={`mt-8 ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8 h-[200vh]`}>
+  return <section className={`mt-8  w-11/12 max-w-6xl mx-auto h-[100vh] px-2`}>
     <div className=" font-semibold uppercase mb-8 max-w-6xl mx-auto">
       <h2>create role</h2>
     </div>

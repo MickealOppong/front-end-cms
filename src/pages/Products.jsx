@@ -46,9 +46,9 @@ const Products = () => {
   }
 
 
-  return <section className={`mt-36 lg:mt-8 w-full px-14 `
+  return <section className={`mt-36 lg:mt-8 w-full h-[200vh] px-14 `
   }>
-    <div className="flex bg-white gap-x-2 md:justify-between p-4 border-2 rounded-md w-[80vw]">
+    <div className={`flex bg-white gap-x-2 md:justify-between p-4 border-2 rounded w-full`}>
       <Form className="flex items-center  gap-x-4 px-4 w-full">
         {/**PAGE SIZE  */}
         <div className="gap-x-2 items-center hidden md:flex">
@@ -56,7 +56,7 @@ const Products = () => {
           <SimpleSelect size={'w-16'} data={[5, 10, 15, 20]} defaultValue={pageSize} name={'pageSize'} />
         </div>
         {/**SEARCH */}
-        <div className="flex items-center border-2 p-2 rounded-md -ml-4 md:ml-0 w-full">
+        <div className="flex items-center border-2 p-2 rounded-md -ml-4 md:ml-0 w-full lg:w-96">
           <input type="search" name='name' placeholder="Search products" className=" w-full outline-none indent-2 " />
           <button className="ml-2"><FaSearch className="text-slate-400" /></button>
         </div>
@@ -67,7 +67,7 @@ const Products = () => {
         <span>Add new</span>
       </Link>
     </div>
-    <div className="mr-8" >
+    <div className="" >
       <ProductsContainer />
     </div>
     <div>

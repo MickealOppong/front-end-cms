@@ -39,12 +39,12 @@ const Categories = () => {
   }
 
 
-  return <section className={`mt-8 ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'}  px-8 h-[90vh] `
+  return <section className={`mt-8 px-8 h-[90vh] `
   }>
     <div className={`text-black tracking-wider font-semibold uppercase mb-8 `}>
       <h2>All Categories</h2>
     </div>
-    <div className={`flex flex-col bg-white  p-4 border-2 rounded-md  w-full ${showSidebar ? 'w-[80vw]' : 'w-[100%]'} h-[65vh]`}>
+    <div className={`flex flex-col bg-white  p-4 border-2 rounded-md  w-full h-[65vh]`}>
       <div className="flex justify-between">
         <Form className="flex items-center gap-x-4 px-4">
           {/**SEARCH */}

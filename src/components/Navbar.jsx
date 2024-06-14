@@ -73,14 +73,14 @@ const Navbar = () => {
     }
     return name;
   }
-  return <nav className={`fixed top-0 left-0 right-0 lg:sticky flex py-4 px-8 h-20 items-center justify-between bg-white z-50 border-b-2`}>
+  return <nav className={`fixed top-0 left-0 right-0 lg:sticky flex justify-between py-4 px-8 h-20 items-center  bg-white z-20 `}>
     {/** TOGGLE BUTTON */}
     <div className="flex  text-3xl text-c4 font-bold justify-start " >
       <button onClick={() => dispatch(toggle())}><FaBarsStaggered /></button>
     </div>
     {/** SEARCH INPUT */}
-    <div className='hidden lg:flex w-3/4 mx-10'>
-      <SearchInput size='w-[50%]' />
+    <div className='hidden md:flex'>
+      <SearchInput size='w-80 lg:w-96' />
     </div>
 
     <div className="flex items-center gap-x-4">

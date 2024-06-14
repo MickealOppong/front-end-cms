@@ -1,21 +1,19 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { dashboardMenu, links, settingsMenu } from "../util/data";
+import MenuItem from "./MenuItem";
 import SectionTitle from "./SectionTitle";
-import SmallSidebarMenuItem from "./SmallSidebarMenuItem";
 
-const SmallSidebar = () => {
+const Sidebar = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
-  const dispatch = useDispatch();
 
-
-  return <aside className={`flex flex-col p-8 gap-y-8 w-80 mt-24 h-full`}>
+  return <aside className={`flex flex-col p-8 gap-y-8 mt-20 shadow-xl  h-full`}>
     <div className="flex flex-col">
       <div className="">
         <SectionTitle title='main home' style='uppercase text-xs text-gray-400 mb-4 font-semibold' />
         <div className="flex flex-col gap-y-4 cursor-pointer">
           {
             dashboardMenu.map((link) => {
-              return <SmallSidebarMenuItem {...link} key={link.id} />
+              return <MenuItem {...link} key={link.id} />
             })
           }
         </div>
@@ -28,7 +26,7 @@ const SmallSidebar = () => {
       <div className="flex flex-col gap-y-4 cursor-pointer">
         {
           links.map((link) => {
-            return <SmallSidebarMenuItem {...link} key={link.id} />
+            return <MenuItem {...link} key={link.id} />
           })
         }
       </div>
@@ -37,10 +35,11 @@ const SmallSidebar = () => {
       <SectionTitle title='settings' style='uppercase text-xs text-gray-400 mb-4 font-semibold' />
       {
         settingsMenu.map((item) => {
-          return <SmallSidebarMenuItem {...item} key={item.id} />
+          return <MenuItem {...item} key={item.id} />
         })
       }
     </div>
   </aside>
+
 }
-export default SmallSidebar;
+export default Sidebar;

@@ -7,19 +7,16 @@ const SmallSidebarContainer = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
   const dispatch = useDispatch()
 
-  return <section className={`absolute top-0 bottom-0 left-0 z-[101] bg-white h-[100vh] border-2 `} >
-    <nav className={`flex items-center justify-between h-20 fixed top-0 left-0 w-80  z-[100] bg-white`} >
-      <h2 className=" px-8 text-3xl text-c4 font-bold">pay.co</h2>
+  return <section className={`flex overflow-y-scroll sm:no-scrollbar h-[100vh] lg:hidden bg-white shadow-lg `} >
+    <nav className={`flex items-center justify-between h-20 fixed top-0 left-0 w-80  z-50 bg-white`} >
+      <h2 className="px-8 text-3xl text-c4 font-bold">pay.co</h2>
       {/** TOGGLE BUTTON */}
-      <div className="flex  text-3xl text-c4 font- mr-2 " >
+      <div className="flex text-3xl text-c4 font- mr-2 " >
         <button onClick={() => dispatch(toggle())}><FaBarsStaggered /></button>
       </div>
     </nav>
-    <div className="overflow-y-scroll no-scrollbar bg-white">
-      <SmallSidebar />
-    </div>
+    <SmallSidebar />
   </section>
-
 
 
 }

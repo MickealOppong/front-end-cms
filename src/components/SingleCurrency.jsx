@@ -24,21 +24,21 @@ const SingleCurrency = ({ recId, currency, iso, createdAt }) => {
     onError: (err) => { console.log(err); }
 
   })
-  return <article className="flex w-[100vw] capitalize text-slate-600 text-sm" >
+  return <article className="flex capitalize text-slate-600 text-sm" >
     {/**NAME */}
-    <div className="flex  items-center w-96">
+    <div className="flex  items-center w-96 md:w-96 lg:w-96">
       <p >{currency}</p>
     </div>
     {/**DESCRIPTION */}
-    <div className="flex items-center w-56">
+    <div className="hidden md:flex items-center md:w-96 lg:w-56">
       <p >{iso}</p>
     </div>
     {/**CREATE AT */}
-    <div className="flex items-center w-56">
+    <div className="hidden lg:flex items-center w-80">
       <p className="">{new Date(createdAt).toDateString()}</p>
     </div>
     {/** ACTIONS */}
-    <div className="flex gap-x-4 items-center w-44">
+    <div className="flex gap-x-4 items-center ">
       <Link to={`/fxRates/${recId}`} className="text-sky-600"><FaEye /></Link>
       <Link to={`/addRate/${recId}`} className="text-emerald-500"><CiEdit /></Link>
       <button className="text-red-700" onClick={() => handleDelete(recId)}><RiDeleteBin6Line /></button>

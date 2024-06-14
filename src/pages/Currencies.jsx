@@ -28,7 +28,7 @@ export const loader = (store, queryClient) => async ({ request }) => {
 }
 const Currencies = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
-  return <section className={`mt-8 ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'}  px-8 h-[90vh] `
+  return <section className={`mt-8 w-11/12 max-w-6xl mx-auto px-2 h-[100vh] `
   }>
 
     <div className={`text-black tracking-wider font-semibold uppercase mb-8  `}>

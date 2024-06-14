@@ -25,21 +25,24 @@ export const action = (store, queryClient) => async ({ request }) => {
 }
 const CreateCurrency = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
-  return <section className={`flex flex-col items-center mt-8 h-[100vh] ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8 `
+  return <section className={`flex flex-col items-center mt-28 lg:mt-8 px-4  md:px-16 h-[100vh] w-full max-w-6xl mx-auto `
   }>
-    <div className="text-black font-semibold uppercase mb-8 w-[60vw]">
+    <div className="flex w-full 
+     text-black font-semibold uppercase mb-8 ">
       <h2>create Currency</h2>
     </div>
+    <Form method="post" className="flex flex-col gap-8 bg-white border-2 w-full py-4 px-6 md:px-16 lg:px-24" encType="multipart/form-data" >
 
-    <Form method="post" className="flex flex-col bg-white p-16 gap-y-8 border-2 w-[60vw] " encType="multipart/form-data" >
       {/**CATEGORY NAME */}
-      <FormInputMandate label='Currency Name' name='currency' type='text' placeholder='Enter currency name' size={'w-[50vw]'} />
+      <FormInputMandate label='Currency Name' name='currency' type='text' placeholder='Enter currency name' size={'w-[80vw] md:w-[70vw] lg:w-[60vw]'} />
+
       {/**CATEGORY DESCRIPTION */}
-      <FormInputMandate label='Currency ISO' name='iso' type='text' placeholder='Enter currency name' size={'w-[50vw]'} />
-      <div>
+      <FormInputMandate label='Currency ISO' name='iso' type='text' placeholder='Enter currency name' size={'w-[80vw] md:w-[70vw] lg:w-[60vw]'} />
+      <div className="flex items-start">
         <button className="btn btn-secondary w-36">save</button>
       </div>
     </Form>
+
   </section>
 }
 export default CreateCurrency
