@@ -23,7 +23,7 @@ const userInformation = () => {
   }
 
 
-  return <div className={`flex flex-col ${showSidebar ? '' : 'max-w-[80%] mx-auto'} mt-12`}>
+  return <div className={`flex flex-col w-full mt-12`}>
     <div className="flex gap-x-12 w-[50%]">
       {
         titleArray.map((item) => {
@@ -34,12 +34,8 @@ const userInformation = () => {
               {icon}{text}
             </button>
             <div className={`mt-2 ${active === id ? 'h-[1px] bg-sky-600 w-auto' : ''} `}>
-
             </div>
-
           </div>
-
-
         })
       }
     </div>

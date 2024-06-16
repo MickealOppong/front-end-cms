@@ -9,7 +9,7 @@ const RoleInfo = ({ role, authorities }) => {
       </div>
       <div className="flex flex-col gap-y-4 w-1/2">
         {/** ROLE NAME */}
-        <div className="flex flex-col gap-y-2 w-96">
+        <div className="flex flex-col gap-y-2 w-full">
           <span>Role</span>
           <p className="border-2 p-2 rounded-xl indent-2 capitalize">{role.roleName}</p>
         </div>

@@ -38,19 +38,19 @@ const AddUser = () => {
   const { roles } = useLoaderData();
 
   const width = () => {
-    return `w-[30vw]  ${showSidebar ? 'lg:w-[30vw]' : 'lg:w-[30vw] '}`
+    return `w-[80vw] lg:w-96`
   }
 
-  return <section className={`mt-8 ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8 h-[150dvw]`
+  return <section className={`mt-24 lg:mt-8 max-w-7xl mx-auto px-8 h-[150dvw]`
   }>
-    <div className={`flex ${showSidebar ? 'mr-8' : 'max-w-6xl mx-auto'}`} >
+    <div className={`flex `} >
       <SectionTitle title='Add new user' style={'text-black text-xl font-semibold uppercase mb-8 tracking-wider'} />
     </div>
     <div className="flex flex-col gap-y-12">
       <Form method="post" encType="multipart/form-data">
         {/** USER CREDENTIALS */}
-        <div className={`grid grid-cols-2 bg-white p-8 border-2 ${showSidebar ? 'mr-8' : 'max-w-6xl mx-auto'}`} >
-          <div className="flex flex-col gap-y-4 w-[20vw]">
+        <div className={`flex  flex-col md:grid md:grid-cols-2 bg-white p-8 border-2 `} >
+          <div className="flex flex-col gap-y-4 w-full">
             <h2 className="text-gray-700 font-semibold">Account</h2>
             <h4>Fill in the information to add a user</h4>
           </div>
@@ -65,7 +65,7 @@ const AddUser = () => {
             {/** GENDER */}
             <div className="flex flex-col gap-y-4 w-[30vw]">
               <p className="label-text font-semibold capitalize mb-4 flex items-center">Gender</p>
-              <SelectInput name='gender' data={['Male', "Female", "Other"]} size='w-full' />
+              <SelectInput name='gender' data={['Male', "Female", "Other"]} size={width()} />
             </div>
             {/** DEFAULT ROLE */}
             <label className="label-text font-semibold capitalize mb-4 flex items-center">Default role</label>
@@ -87,7 +87,7 @@ const AddUser = () => {
         </div>
 
         {/** USER IMAGE */}
-        <div className={`grid grid-cols-2 bg-white p-8 border-2 mt-10 ${showSidebar ? 'mr-8' : 'max-w-6xl mx-auto'}`} >
+        <div className={`grid grid-cols-2 bg-white p-8 border-2 mt-10 `} >
           <div className="flex flex-col gap-y-4">
             <h2 className="text-gray-700 font-semibold">Photo</h2>
             <h4>You can add image</h4>
@@ -95,11 +95,10 @@ const AddUser = () => {
           <input type="file" className={`file-input file-input-bordered file-input-secondary w-full max-w-xs ${width()}`} name="file" />
         </div>
 
-        <div className={`flex  mt-10 ${showSidebar ? 'mr-8' : 'max-w-6xl mx-auto'}`} >
+        <div className={`flex  mt-10`} >
           <button className="btn btn-secondary w-36 text-gray-100">save</button>
         </div>
       </Form>
-
     </div >
   </section >
 }

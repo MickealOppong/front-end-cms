@@ -37,16 +37,16 @@ export const loader = (store, queryClient) => async ({ request }) => {
 }
 const Roles = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
-  return <section className={`mt-24 lg:mt-8  w-11/12 max-w-6xl mx-auto h-[100vh] px-2  `
+  return <section className={`mt-24 lg:mt-8  w-11/12 max-w-6xl mx-auto h-[100vh] px-2 `
   }>
     <div className={`text-black tracking-wider font-semibold uppercase mb-8 `}>
       <h2>Role List</h2>
     </div>
-    <div className={`flex flex-col bg-white  p-4 border-2 rounded-md  w-full ${showSidebar ? 'w-[80vw]' : 'w-[100%]'} h-[65vh]`}>
-      <div className="flex justify-between">
+    <div className={`flex flex-col bg-white  p-4 border-2 rounded-md h-[70vh] `}>
+      <div className="flex flex-col md:flex-row md:justify-between gap-y-4 mb-4">
         {/**SEARCH */}
         <form className="flex items-center border-[1px] rounded-md border-gray-300 px-4">
-          <input type="search" name='username' placeholder="Search role" className=" w-[20vw] outline-none indent-2" />
+          <input type="search" name='roleName' placeholder="Search role" className="w-full h-12 md:w-[20vw] outline-none indent-2" />
           <button><FaSearch /></button>
         </form>
 
@@ -57,14 +57,12 @@ const Roles = () => {
         </Link>
       </div>
       <div>
-        <article >
-          <RolesContainer />
-        </article>
+        <RolesContainer />
       </div>
     </div>
     <div className="flex justify-end max-w-6xl mx-auto">
       <PaginationContainer />
     </div>
-  </section>
+  </section >
 }
 export default Roles;

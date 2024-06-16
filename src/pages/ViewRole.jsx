@@ -29,10 +29,10 @@ const ViewRole = () => {
   //const keys = Object.keys(authorities);
   //keys.sort();
 
-  return <section className={`mt-8 h-[120vh] ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8`
+  return <section className={`mt-24 lg:mt-8 h-[120vh] max-w-6xl mx-auto w-[90%] px-4`
   }>
     <div className="text-black font-semibold uppercase mb-8">
-      <h2>User details</h2>
+      <h2>User Role</h2>
     </div>
     <article className="flex flex-col bg-white">
       <RoleInfo {...roleInfo} />

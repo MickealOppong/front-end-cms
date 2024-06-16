@@ -136,25 +136,25 @@ const EditAttribute = () => {
     setReadOnly(!readOnly)
   }
 
-  return <section className={`mt-8 h-[250vh] ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8`
+  return <section className={`mt-24 lg:mt-8 h-[250vh] px-8 max-w-6xl mx-auto`
   }>
-    <div className={`text-black font-semibold uppercase mb-8 ${showSidebar ? 'w-[80vw]' : 'max-w-6xl mx-auto'}`}>
+    <div className={`text-black font-semibold uppercase mb-8`}>
       <h2>Attribute information</h2>
     </div>
-    <div className="flex flex-col max-w-6xl mx-auto bg-white">
+    <div className="flex flex-col  bg-white w-full">
       {/** NAME */}
-      <div className="lex flex-col gap-y-8 mr-10 p-8 ">
+      <div className="lex flex-col gap-y-8 mr-10 p-8 w-full ">
         <p>{name}</p>
-        <div className="mt-10 flex flex-col gap-y-4">
+        <div className="mt-10 flex flex-col gap-y-4 w-full">
           {
             productSKU.map((sku) => {
               const { id, description, skuValue, quantity, price } = sku;
               return <form className="flex flex-col gap-y-2 border-2 rounded-md shadow-md p-4 " method="post" key={id} onSubmit={(e) => handleUpdate(e, id)}>
                 <div className="grid grid-cols-2 p-2 gap-y-2 text-xs">
-                  <input name={'description'} placeholder="description" className={`capitalize outline-none w-56 ${readOnly ? '' : 'border-2 p-2 rounded-md'}`} defaultValue={description} readOnly={readOnly} />
-                  <input name={'value'} placeholder="value" className={`capitalize outline-none w-56 ${readOnly ? '' : 'border-2 p-2 rounded-md'}`} defaultValue={skuValue} readOnly={readOnly} />
+                  <input name={'description'} placeholder="description" className={`capitalize outline-none w-60 ${readOnly ? '' : 'border-2 p-2 rounded-md'}`} defaultValue={description} readOnly={readOnly} />
+                  <input name={'value'} placeholder="value" className={`capitalize outline-none w-60 ${readOnly ? '' : 'border-2 p-2 rounded-md'}`} defaultValue={skuValue} readOnly={readOnly} />
                 </div>
-                <div className="mt-2 flex gap-x-4">
+                <div className="mt-2 flex gap-x-4 w-full">
                   <button onClick={(e) => handleEdit(e)}><CiEdit /></button>
                   <button onClick={(e) => handleDelete(e, id)}><RiDeleteBin5Line /></button>
                   <button>save</button>

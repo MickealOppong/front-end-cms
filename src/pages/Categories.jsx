@@ -39,19 +39,16 @@ const Categories = () => {
   }
 
 
-  return <section className={`mt-8 px-8 h-[90vh] `
+  return <section className={`mt-24 lg:mt-8 px-4 w-11/12 max-w-7xl mx-auto `
   }>
     <div className={`text-black tracking-wider font-semibold uppercase mb-8 `}>
       <h2>All Categories</h2>
     </div>
     <div className={`flex flex-col bg-white  p-4 border-2 rounded-md  w-full h-[65vh]`}>
-      <div className="flex justify-between">
-        <Form className="flex items-center gap-x-4 px-4">
-          {/**SEARCH */}
-          <div className="flex items-center border-2 p-2 rounded-md">
-            <input type="search" name='name' placeholder="Search products" className=" w-[20vw] outline-none indent-2 " />
-            <button className="ml-2"><FaSearch className="text-slate-400" /></button>
-          </div>
+      <div className="flex flex-col md:flex-row md:justify-between gap-y-4 mb-4">
+        <Form className="flex items-center border-[1px] rounded-md border-gray-300 px-4">
+          <input type="search" name='category' placeholder="Search category" className="w-full h-12 md:w-[20vw] outline-none indent-2" />
+          <button><FaSearch /></button>
         </Form>
         {/**ADD NEW */}
         <Link className="flex items-center btn btn-ghost border-cyan-700  w-36 hover:bg-primary hover:text-gray-200 " to='/category'>

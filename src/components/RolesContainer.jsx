@@ -16,7 +16,7 @@ const RolesContainer = () => {
         <div className="w-1/2">
           <h2 >name</h2>
         </div>
-        <div className="w-1/2">
+        <div className="hidden md:flex w-1/2">
           <h2 >created At</h2>
         </div>
         <div className="w-1/2">

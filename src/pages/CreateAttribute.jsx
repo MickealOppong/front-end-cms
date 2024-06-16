@@ -29,15 +29,15 @@ const CreateAttribute = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
 
   const width = () => {
-    return ` ${showSidebar ? 'lg:w-[50vw]' : 'lg:w-[50vw] '}`
+    return ` w-full`
   }
-  return <section className={`flex flex-col items-center mt-8 ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8 h-[200vh]`
+  return <section className={`flex flex-col mt-24 lg:mt-8 max-w-6xl mx-auto px-8 w-full lg:w-[60vw]`
   }>
-    <div className="flex w-[60vw] tracking-wider mr-8 text-black font-semibold uppercase mb-8">
+    <div className="flex tracking-wider text-black font-semibold uppercase mb-8">
       <h2>create attributes</h2>
     </div>
 
-    <Form className="flex flex-col bg-white p-16 gap-y-8 border-[1px] mr-8 w-[60vw]" method="post">
+    <Form className="flex flex-col bg-white p-8 gap-y-8 border-[1px] w-full" method="post">
       {/**ATTRIBUTE NAME */}
       <FormInputMandate label='Attribute name' name='name' type='text' placeholder='Enter category type' size={width()} />
 

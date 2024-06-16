@@ -1,7 +1,7 @@
 import { FaAsterisk } from "react-icons/fa";
 
 const FormInputMandate = ({ type, name, size, label, placeholder }) => {
-  return <label className="form-control w-full max-w-xs">
+  return <label className="form-control ">
     <div className="label">
       <span className="label-text font-semibold capitalize mb-4 flex items-center gap-x-2">{label}
         <FaAsterisk className="text-red-600 text-[5px]" />

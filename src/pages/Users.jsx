@@ -36,16 +36,16 @@ const Users = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
 
 
-  return <section className={`mt-8 ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'}  px-8 h-[90vh] `
+  return <section className={`mt-24 lg:mt-8 max-w-7xl mx-auto h-[90vh] px-4 `
   }>
-    <div className={`text-black tracking-wider font-semibold uppercase mb-8 mx-auto ${showSidebar ? 'max-w-6xl' : 'max-w-9xl'}`}>
+    <div className={`text-black tracking-wider font-semibold uppercase mb-8 max-w-7xl mx-auto `}>
       <h2>All users</h2>
     </div>
-    <div className={`flex flex-col bg-white  p-4 border-2 rounded-md  w-full ${showSidebar ? 'w-[80vw]' : 'w-[100%]'} h-[65vh]`}>
-      <div className="flex justify-between">
+    <div className={`flex flex-col bg-white  p-4 border-2 rounded-md max-w-7xl mx-auto w-[85vw] md:w-[75vw] h-[65vh]`}>
+      <div className="flex flex-col md:flex-row md:justify-between gap-y-4 mb-4">
         {/**SEARCH */}
         <form className="flex items-center border-[1px] rounded-md border-gray-300 px-4">
-          <input type="search" name='username' placeholder="Search user" className=" w-[20vw] outline-none indent-2" />
+          <input type="search" name='username' placeholder="Search user" className="w-full h-12 md:w-[20vw] outline-none indent-2" />
           <button><FaSearch /></button>
         </form>
 

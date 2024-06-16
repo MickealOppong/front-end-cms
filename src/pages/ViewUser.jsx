@@ -35,14 +35,14 @@ const ViewUser = () => {
   const { userInfo } = useLoaderData();
 
   const { fullname, username, roles, image, addressBook, telephone } = userInfo;
-  return <section className={`mt-8 h-[250vh] ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-10`
+  return <section className={`mt-24 lg:mt-8 h-[150vh] max-w-6xl mx-auto w-full px-8 mr-8 `
   }>
-    <div className={`flex gap-x-8 mb-10 uppercase font-bold ${showSidebar ? '' : 'max-w-[80%] mx-auto'}`}>
+    <div className={`flex gap-x-8 mb-10 uppercase font-bold `}>
       <h2>User profile</h2>
     </div>
 
-    <div className={`flex gap-x-8 ${showSidebar ? '' : 'max-w-[80%] mx-auto'}`}>
-      <div className="flex flex-col bg-white p-8 w-[65%] border-2 shadow-md">
+    <div className={`flex flex-col lg:flex-row lg:gap-x-8 gap-y-8 `}>
+      <div className="flex flex-col bg-white p-8 w-full border-2 shadow-md">
         <div className="flex items-center py-4">
           <div className="mr-12">
             <img src={image || img} alt={username} className="w-36 h-36 rounded-full" />
@@ -70,7 +70,7 @@ const ViewUser = () => {
         </div>
 
       </div>
-      <div className="flex flex-col bg-white p-4 w-[35%] border-2 rounded-md">
+      <div className="flex flex-col bg-white p-4 w-full border-2 rounded-md">
         <Address {...addressBook} telephone={telephone} username={username} />
         <div className="flex flex-col mt-4 gap-y-2 border-dotted border-t-2 py-2">
           <div className="flex justify-between">
@@ -84,7 +84,9 @@ const ViewUser = () => {
         </div>
       </div>
     </div>
-    <UserInformation />
+    <div className="w-full">
+      <UserInformation />
+    </div>
   </section>
 }
 export default ViewUser;

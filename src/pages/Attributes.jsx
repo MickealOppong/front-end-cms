@@ -37,21 +37,21 @@ const Attributes = () => {
     return ` ${showSidebar ? 'lg:w-[70vw]' : 'lg:w-[90vw] '}`
   }
 
-  return <section className={`mt-8 w-full ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8 h-[100vh] `
+  return <section className={`mt-24 lg:mt-8 w-[95%] px-4 h-[100vh] max-w-7xl mx-auto`
   }>
     <div className="text-black font-semibold uppercase mb-8">
       <h2>All attributes</h2>
     </div>
-    <div className={`flex flex-col bg-white  p-4 border-2 rounded-md mx-auto w-full ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} h-[60vh]`}>
-      <div className="flex justify-between">
+    <div className={`flex flex-col bg-white  p-4 border-2 rounded-md mx-auto w-full h-[60vh]`}>
+      <div className="flex flex-col md:flex-row md:justify-between gap-y-4 mb-2">
         {/**SEARCH */}
         <form className="flex items-center border-[1px] rounded-md border-gray-300 px-4">
-          <input type="search" name='attribute' placeholder="Search attribute" className=" w-[20vw] outline-none indent-2" />
+          <input type="search" name='attribute' placeholder="Search attribute" className="w-full md:w-[30vw] h-12 outline-none indent-2" />
           <button><FaSearch /></button>
         </form>
 
         {/**ADD NEW */}
-        <Link className="flex items-center btn btn-ghost border-cyan-700  w-36 hover:bg-primary hover:text-gray-200 " to='/attribute'>
+        <Link className="flex items-center btn btn-ghost border-cyan-700 w-44 hover:bg-primary hover:text-gray-200 " to='/attribute'>
           <FaPlus />
           <span>Add new</span>
         </Link>

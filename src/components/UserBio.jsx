@@ -4,7 +4,7 @@ const UserBio = () => {
   const { userInfo } = useLoaderData();
   const { fullname, username, authorities, roles, enabled, accountNonExpired, accountNonLocked, credentialsNonExpired, gender, telephone } = userInfo;
   return <section className="flex flex-col">
-    <div className="grid grid-cols-2 gap-8">
+    <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8">
       {/**FULL NAME */}
       <div className="flex flex-col gap-y-4 capitalize">
         <label >full Name</label>
@@ -26,7 +26,7 @@ const UserBio = () => {
         <input type="text" value={telephone} className="border-2 border-slate-300 p-2 rounded-md bg-slate-50 outline-none" contentEditable={false} />
       </div>
     </div>
-    <div className="grid grid-cols-2 mt-10 gap-4">
+    <div className="flex flex-col lg:grid lg:grid-cols-2 mt-10 gap-4">
       {/**ACCOUNT ENABLED */}
       <div className="flex gap-x-4 ">
         <label className="w-56" >Account enabled</label>

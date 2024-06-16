@@ -66,33 +66,17 @@ const EditUser = () => {
   const { fullname, username, enabled, accountNonExpired, accountNonLocked, credentialsNonExpired, image, gender, roles, telephone } = userInfo;
 
 
-
-  const handleDelete = async (id) => {
-    try {
-      const response = await customFetch.delete(`/api/roles/${id}`, {
-        params: {
-          id
-        },
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-      console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  return <section className={`mt-8 h-[250vh] ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8 h-[250vh] `
+  return <section className={`mt-24 lg:mt-8 h-[250vh] max-w-6xl mx-auto lg:w-[60vw]`
   }>
-    <div className="text-black font-semibold uppercase mb-8 max-w-6xl mx-auto">
+    <div className="text-black font-semibold uppercase mb-8 ">
       <h2>Edit User details</h2>
     </div>
-    <Form className="flex flex-col gap-y-8 max-w-6xl mx-auto mr-8" method="post" encType="multipart/form-data">
-      <div className="flex items-start justify-between bg-white p-4 border-2">
+    <Form className="flex flex-col gap-y-8 mr-8" method="post" encType="multipart/form-data">
+      <div className="flex flex-col lg:flex-row items-start justify-between bg-white p-4 border-2">
         <div className="flex flex-col gap-y-20">
           <h2>Personal information</h2>
         </div>
-        <div className="flex flex-col gap-y-4 w-1/2">
+        <div className="flex flex-col gap-y-4 w-full lg:w-1/2">
           {/** FULL NAME */}
           <FormInput label='Name' defValue={fullname} name='fullname' type='text' />
 
@@ -107,11 +91,11 @@ const EditUser = () => {
 
       </div>
 
-      <div className="flex items-start justify-between bg-white p-4 border-2">
+      <div className="flex flex-col lg:flex-row items-start justify-between bg-white p-4 border-2">
         <div>
           <h2>Address information</h2>
         </div>
-        <div className="flex flex-col gap-y-4 w-1/2">
+        <div className="flex flex-col gap-y-4 w-full lg:w-1/2">
           {/** STREET */}
           <FormInput label='street' defValue={userInfo?.addressBook?.street || 'NA'} name='street' type='text' />
 
@@ -125,11 +109,11 @@ const EditUser = () => {
           <FormInput label='country' defValue={userInfo?.addressBook?.country || 'NA'} name='country' type='text' />
         </div>
       </div>
-      <div className="flex items-start justify-between bg-white p-4 border-2">
+      <div className="flex flex-col lg:flex-row items-start justify-between bg-white p-4 border-2">
         <div>
           <h2>Account information</h2>
         </div>
-        <div className="flex flex-col gap-y-4 w-1/2">
+        <div className="flex flex-col gap-y-4 w-full lg:w-1/2">
           {/** ACCOUNT ENABLED */}
           <CheckboxInput label='Account Enabled' name='enabled' defCheck={enabled} />
 
@@ -144,12 +128,12 @@ const EditUser = () => {
       </div>
 
       {/** USER IMAGE */}
-      <div className="flex items-start justify-between bg-white p-4 border-2" >
-        <div className="flex flex-col gap-y-4">
+      <div className="flex flex-col lg:flex-row items-start justify-between bg-white p-4 border-2" >
+        <div className="flex flex-col gap-y-4 w-full">
           <h2 className="text-gray-700 font-semibold">Photo</h2>
           <h4>You can add image</h4>
         </div>
-        <div className="w-1/2">
+        <div className="w-full ">
           <input type="file" className={`file-input file-input-bordered file-input-secondary `} name="image" />
         </div>
 

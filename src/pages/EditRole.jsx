@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { RoleInfo } from "../components/index";
 import { roleData } from "../util/data";
 import { customFetch } from '../util/index';
 const singleRoleQuery = (id, token) => {
@@ -43,11 +42,9 @@ const EditRole = () => {
 
 
 
-  return <section className={`mt-8 h-[150vh] ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8`
+  return <section className={`mt-8 h-[150vh] max-w-6xl mx-auto px-8`
   }>
-    <div>
-      <RoleInfo {...singleRole} />
-    </div>
+    <h2>Edit role</h2>
 
   </section>
 }

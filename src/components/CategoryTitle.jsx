@@ -6,24 +6,24 @@ const CategoryTitle = () => {
       <p >Category</p>
     </div>
     {/**DESCRIPTION */}
-    <div className="flex w-96">
+    <div className="hidden md:flex w-96">
       <p >description</p>
     </div>
     {/**QUANTITY */}
-    <div className="flex w-36">
+    <div className="hidden lg:flex w-36">
       <p >quantity</p>
     </div>
     {/**SALE */}
-    <div className="flex  w-36">
+    <div className="hidden lg:flex  w-36">
       <p >sale</p>
     </div>
     {/**CREATE AT */}
-    <div className="flex w-56 ">
+    <div className="hidden lg:flex w-56 ">
       <p className="">created at</p>
     </div>
     {/**ACTIONS */}
     <div className="flex ">
-      <p className="ml-28" >actions</p>
+      <p className="lg:ml-28" >actions</p>
     </div>
   </article >
 }

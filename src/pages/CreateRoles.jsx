@@ -89,33 +89,38 @@ const CreateRoles = () => {
   }
 
 
-  return <section className={`mt-8  w-11/12 max-w-6xl mx-auto h-[100vh] px-2`}>
+  return <section className={`mt-24 lg:mt-8  w-11/12 max-w-6xl mx-auto px-2 h-[100vh]`}>
     <div className=" font-semibold uppercase mb-8 max-w-6xl mx-auto">
       <h2>create role</h2>
     </div>
 
-    <form method="post" className={`flex flex-col gap-y-8  bg-white p-8 border-[1px] max-w-6xl mx-auto ${showSidebar ? 'mr-8' : ''}`} onSubmit={(e) => HandleUserRoles(e)}>
+    <form method="post" className={`flex flex-col gap-y-8   p-8 bg-white border-[1px] max-w-6xl mx-auto `} onSubmit={(e) => HandleUserRoles(e)}>
+
       <FormInput label='Role name' type='text' name='roleName' size='w-[60vw]' />
+
       <div className="text-md text-gray-700 font-semibold capitalize mb-4">
         <h2>permissions</h2>
       </div>
-      <div className="flex flex-col gap-y-4" method="post">
+      <div className="flex flex-col gap-y-4">
         {
           data?.map((role) => {
             const { id, model, authorities } = role;
-            return <div key={id} className="flex">
-              <div className=" flex w-9/12  ">
-                <h4 key={id} className="capitalize">{model}</h4>
+            return <div key={id} className="flex flex-col gap-y-2 lg:flex-row">
+              <div className=" flex w-60">
+                <h4 key={id} className="capitalize font-semibold">{model}</h4>
               </div>
-              {
-                authorities?.map((role) => {
-                  const { id, text, access } = role;
-                  return <div className="flex w-1/2 gap-x-2 capitalize" key={id}>
-                    <span className="label-text">{text}</span>
-                    <input type="checkbox" className="checkbox checkbox-secondary" checked={access} onChange={() => handleChange(model, id, text)} />
-                  </div>
-                })
-              }
+              <div className="flex ">
+                {
+                  authorities?.map((role) => {
+                    const { id, text, access } = role;
+                    return <div className="flex flex-col lg:flex-row w-36 gap-x-2 capitalize " key={id}>
+                      <span className="label-text">{text}</span>
+                      <input type="checkbox" className="checkbox checkbox-secondary" checked={access} onChange={() => handleChange(model, id, text)} />
+                    </div>
+                  })
+                }
+              </div>
+
             </div>
           })
         }

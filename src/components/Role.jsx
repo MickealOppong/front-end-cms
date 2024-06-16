@@ -42,13 +42,13 @@ const Role = ({ id, roleName, createdAt }) => {
       <p>{roleName}</p>
     </div>
     {/** CREATED AT */}
-    <div className="w-1/2" >
+    <div className="hidden md:flex w-1/2" >
       <p>{new Date(createdAt).toDateString()}</p>
     </div>
     {/** ACTIONS */}
     <div className="flex w-1/2 gap-x-4 items-center">
       <Link to={`/viewRole/${id}`} className="text-sky-600" ><FaEye /></Link>
-      <Link to={`/editRole/${id}`} className="text-emerald-500 link link-primary" ><CiEdit /></Link>
+      <Link to={`/editRole/${id}`} className="hidden text-emerald-500 link link-primary" ><CiEdit /></Link>
       <button className="text-red-700" onClick={() => handleDelete(id)} ><RiDeleteBin6Line /></button>
     </div>
   </div>

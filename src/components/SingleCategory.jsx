@@ -37,19 +37,19 @@ const SingleCategory = ({ id, name, description, quantity, sale, createdAt, icon
       <p >{name}</p>
     </div>
     {/**DESCRIPTION */}
-    <div className="flex items-center w-96">
+    <div className="hidden md:flex items-center w-96">
       <p >{description}</p>
     </div>
     {/**QUANTITY */}
-    <div className="flex items-center w-36">
+    <div className="hidden lg:flex items-center w-36">
       <p >{quantity}</p>
     </div>
     {/**SALE */}
-    <div className="flex items-center w-36 ">
+    <div className="hidden lg:flex items-center w-36 ">
       <p >{sale}</p>
     </div>
     {/**CREATE AT */}
-    <div className="flex items-center w-80">
+    <div className="hidden lg:flex items-center w-80">
       <p className="">{new Date(createdAt).toDateString()}</p>
     </div>
     {/** ACTIONS */}

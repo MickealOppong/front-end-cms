@@ -32,31 +32,29 @@ const ViewAttribute = () => {
   //console.log(singleAttribute);
 
   const { id, name, productSKU } = singleAttribute;
-  return <section className={`mt-8 h-[120vh] ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8`
+  return <section className={`mt-24 lg:mt-8 h-[120vh] px-8 max-w-6xl mx-auto lg:w-[60vw] `
   }>
     <div className="text-black font-semibold uppercase mb-8">
       <h2>Attribute information</h2>
     </div>
     <article className="flex flex-col gap-y-8 ">
-      <div className="flex items-start justify-between bg-white p-4">
+      <div className="flex  flex-col lg:flex-row items-start justify-between gap-y-4 lg:gap-x-8 bg-white p-4">
         <div className="flex flex-col">
           <h2>Attribute </h2>
         </div>
-
-        <div className="flex flex-col gap-y-4 w-1/2">
+        <div className="flex flex-col gap-y-4 w-full">
           {/** NAME */}
-          <div className="flex flex-col gap-y-2 w-96">
+          <div className="flex flex-col gap-y-2 w-full">
             <span>Identifier</span>
             <p className="border-2 p-2 rounded-xl indent-2 capitalize">{name}</p>
           </div>
         </div>
-
       </div>
       <div className="flex items-start justify-between bg-white p-4">
         <div>
           <h2>Options</h2>
         </div>
-        <div className="grid grid-cols-6  w-1/2">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4  w-1/2">
           {
             productSKU.map((sku) => {
               const { id, skuValue } = sku;
