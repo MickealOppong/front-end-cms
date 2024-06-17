@@ -26,18 +26,17 @@ const SingleProduct = ({
 
 
   }
-  console.log(fx);
 
-  return <article className="relative" onMouseOver={() => setShowItems(true
+  return <article className="relative w-full" onMouseOver={() => setShowItems(true
   )} onMouseLeave={() => setShowItems(false)}>
-    <div className={`flex flex-col bg-white  md:w-96 lg:w-80 items-center p-4`} >
-      <div className="flex items-center gap-x-2 text-emerald-500">
-        <img src={images[0]} className="w-[80vw] md:w-96 h-60" />
+    <div className={`flex flex-col bg-white  md:w-full items-center p-4`} >
+      <div className="flex items-center gap-x-2 text-emerald-500 w-full">
+        <img src={images[0]} className="w-[85vw] md:w-full h-60" />
       </div>
-      <div className="flex flex-col gap-y-2 bg-green-100 w-full p-4">
-        <p>{name}</p>
-        <div className="flex items-center gap-x-2">
-          <span>tags :</span>
+      <div className="flex flex-col gap-y-2 w-full p-4  text-slate-600">
+        <p className="uppercase">{name}</p>
+        <div className="flex items-center gap-x-2 capitalize">
+          <span>categories :</span>
           <div className="flex items-center gap-x-2">
             {
               categories.map((item) => {

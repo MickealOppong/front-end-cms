@@ -73,7 +73,7 @@ const CreateProduct = () => {
 
   //
   const width = () => {
-    return ` ${showSidebar ? 'lg:w-[25vw]' : 'lg:w-[30vw] '}`
+    return `w-full`
   }
 
 
@@ -103,61 +103,59 @@ const CreateProduct = () => {
   }
 
 
-  return <section className={`mt-8 w-full px-16 h-[300vh] `
+  return <section className={`mt-24 lg:mt-8 w-full px-8 h-[400vh]   `
   }>
 
-    <div className='max-w-6xl mx-auto'>
-      <div className="max-w-6xl mx-auto text-xl" >
-        <h2>Add product</h2>
+    <div className='max-w-6xl mx-auto w-[85vw] lg:w-[70vw]'>
+      <div className="text-xl uppercase" >
+        <h2>create product</h2>
       </div>
-      <form encType="multipart/form-data" method="post" onSubmit={handleCreateProduct} >
-        <div className="flex justify-end mb-10 mr-10">
-          <button className="btn btn-secondary w-36 hover:bg-c3">Add product</button>
-        </div>
+      <form encType="multipart/form-data" method="post" onSubmit={handleCreateProduct} className="w-full mt-10">
 
-        <div className="flex flex-col w-[40vw] gap-y-8">
-          <div className="flex bg-white gap-x-4 ">
+
+        <div className="flex flex-col md:flex-row w-full gap-8">
+          <div className="flex bg-white gap-x-4 p-4 w-full ">
             {/**PRODUCT META DATA */}
-            <div className="flex flex-col p-8">
+            <div className="flex flex-col w-full">
               <div className="text-slate-600 tracking-wider uppercase bg-slate-200 p-2 mb-4">
                 <h2 >General</h2>
               </div>
               <div className="flex flex-col gap-y-4">
                 {/**NAME */}
-                <FormInputMandate label='name' name='name' type='text' placeholder='Enter product name' size={'w-[35vw]'} />
+                <FormInputMandate label='name' name='name' type='text' placeholder='Enter product name' size={width()} />
 
                 {/**DESCRIPTION */}
-                <TextArea name='description' placeholder='Description' styles={'w-[35vw] h-24'} />
+                <TextArea name='description' placeholder='Description' styles={`${width()} h-24`} />
 
                 {/**FEATURES*/}
-                <TextArea name='features' placeholder='Features' styles={'w-[35vw] h-24'} />
+                <TextArea name='features' placeholder='Features' styles={`${width()} h-24`} />
               </div>
 
             </div>
           </div>
           {/** STOCK AND PRICE DATA */}
-          <div className="flex flex-col bg-white p-8">
+          <div className="flex flex-col bg-white p-4 w-full">
             <div className="text-slate-600 tracking-wider uppercase bg-slate-200 p-2 mb-4">
               <h2 >Stock & Pricing information</h2>
             </div>
             <div className="flex flex-col gap-y-4" >
               {/** QUANTITY */}
-              <FormInputMandate label='Available quantity' name='quantity' type='text' placeholder='Enter quantity' size={'w-[35vw]'} />
+              <FormInputMandate label='Available quantity' name='quantity' type='text' placeholder='Enter quantity' size={width()} />
 
               {/** SELLING PRICE */}
-              <FormInputMandate label='Purchase Cost' name='purchasePrice' type='text' placeholder='Enter cost price' size={'w-[35vw]'} />
+              <FormInputMandate label='Purchase Cost' name='purchasePrice' type='text' placeholder='Enter cost price' size={width()} />
 
               {/** SELLING PRICE */}
-              <FormInputMandate label='regular Price' name='regularPrice' type='text' placeholder='Enter regular price' size={'w-[35vw]'} />
+              <FormInputMandate label='regular Price' name='regularPrice' type='text' placeholder='Enter regular price' size={width()} />
 
-              <FormInput label='Discounted Price' name='salePrice' type='text' placeholder='Enter discounted price' size={'w-[35vw]'} />
+              <FormInput label='Discounted Price' name='salePrice' type='text' placeholder='Enter discounted price' size={width()} />
             </div>
           </div>
         </div>
-        <div className={`flex flex-col gap-y-8 absolute top-40  ${showSidebar ? "w-80 right-60" : 'w-96 right-80'}`}>
-          {/**IMAGE */}
-          <div className="flex flex-col gap-y-4  bg-white w-[35vw] p-8">
-            <div className="text-slate-600 tracking-wider uppercase bg-slate-200 p-2 mb-4">
+        {/**IMAGE */}
+        <div className={`flex flex-col gap-8 w-full mt-10`}>
+          <div className="flex flex-col  gap-y-4  bg-white w-full p-8">
+            <div className="text-slate-600 tracking-wider uppercase bg-slate-200 p-2 mb-4 w-full">
               <h2 >Product images</h2>
             </div>
             <div>
@@ -171,42 +169,44 @@ const CreateProduct = () => {
           </div>
 
           {/**ATTRIBUTES AND CATEGORY */}
-          <div className="flex flex-col gap-y-4 bg-white p-8 w-[35vw]">
+          <div className="flex flex-col gap-y-4 bg-white p-8 w-full">
             <div className="text-slate-600 tracking-wider uppercase bg-slate-200 p-2 mb-4">
               <h2 >attribute and category</h2>
             </div>
-            <div className="flex flex-col gap-y-10">
+            <div className=" flex flex-col gap-y-10 w-full">
               <AddCategory categories={catData} />
               <AddVariant data={attributeData} />
             </div>
           </div>
         </div>
         {/** VENDOR DETAILS */}
-        <div className="w-[40vw] bg-white p-8 mt-10">
-          <div className="text-slate-600 tracking-wider uppercase bg-slate-200 p-2 mb-4">
-            <h2 >Supplier information</h2>
-          </div>
-          <div className="flex flex-col gap-y-4">
-            <div className="flex flex-col gap-y-4">
-              <p className="label-text font-semibold">Supplier</p>
-              <SimpleSelect data={vendors} name={'vendor'} size={'w-40vw'} />
+        <div className="flex flex-col  w-full bg-white p-8 mt-10 gap-8">
+          <div className="flex flex-col w-full">
+            <div className="text-slate-600 tracking-wider uppercase bg-slate-200 p-2 mb-4">
+              <h2 >Supplier information</h2>
             </div>
-            <FormInput label='Invoice#' name='invoiceId' type='text' placeholder='Enter invoice #' size={'w-[31vw]'} />
-            <button type="button" onClick={() => setShowForm(true)} className="btn btn-secondary ">add new supplier</button>
-          </div>
-
-          <div className={`${showForm ? 'flex' : 'hidden'}`}>
             <div className="flex flex-col gap-y-4">
-              <FormInput label={'Vendor name'} name='vendorName' type='text' placeholder={'Vendor name'} size={'w-[31vw]'} />
-              <FormInput label={'Address'} name='vendorAddress' type='text' placeholder={'Address'} size={'w-[31vw]'} />
-              <FormInput label={'Telephone'} name='vendorTelephone' type='text' placeholder={'Telephone'} size={'w-[31vw]'} />
-              <FormInput label={'Email'} name='vendorEmail' type='email' placeholder={'Email'} size={'w-[31vw]'} />
+              <div className="flex flex-col gap-y-4">
+                <p className="label-text font-semibold">Supplier</p>
+                <SimpleSelect data={vendors} name={'vendor'} size={width()} />
+              </div>
+              <FormInput label='Invoice#' name='invoiceId' type='text' placeholder='Enter invoice #' size={width()} />
+              <button type="button" onClick={() => setShowForm(true)} className="btn btn-secondary ">add new supplier</button>
+            </div>
+          </div>
+          <div className={`${showForm ? 'flex' : 'hidden'} mt-6 w-full`}>
+            <div className="flex flex-col gap-y-4 w-full">
+              <FormInput label={'Vendor name'} name='vendorName' type='text' placeholder={'Vendor name'} size={width()} />
+              <FormInput label={'Address'} name='vendorAddress' type='text' placeholder={'Address'} size={width()} />
+              <FormInput label={'Telephone'} name='vendorTelephone' type='text' placeholder={'Telephone'} size={width()} />
+              <FormInput label={'Email'} name='vendorEmail' type='email' placeholder={'Email'} size={width()} />
 
               <button type="button" className="btn w-24" onClick={() => setShowForm(false)}>hide</button>
             </div>
-
           </div>
-
+        </div>
+        <div className="flex justify-end mt-10">
+          <button className="btn btn-secondary w-36 hover:bg-c3">Add product</button>
         </div>
       </form>
     </div>

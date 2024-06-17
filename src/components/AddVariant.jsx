@@ -24,7 +24,7 @@ const AddVariant = ({ data, size }) => {
   }
 
 
-  return <article className="bg-white w-[30vw] flex flex-col py-4 border-2 rounded-md shadow-md" >
+  return <article className="bg-white w-full flex flex-col py-4 border-2 rounded-md shadow-md" >
     <div className="flex ml-8 font-semibold">
       <h2>Variant</h2>
     </div>
@@ -43,7 +43,7 @@ const AddVariant = ({ data, size }) => {
                 <button type="button" onClick={() => remove(index)} className="text-c4 text-xs capitalize">remove</button>
               </div>
               <div className="flex justify-center">
-                <SelectVariant data={data} size={'w-96 mr-8'} index={index} />
+                <SelectVariant data={data} size={'w-full mr-8'} index={index} />
               </div>
             </div>
           </div>
@@ -55,7 +55,7 @@ const AddVariant = ({ data, size }) => {
         let newCounter = counter + 1;
         setCounter(() => newCounter)
         setArray(() => Array.from({ length: newCounter }))
-      }} className="btn bg-c4 hover:bg-c4  text-slate-100 w-80 mt-2">add another option</button>
+      }} className="btn bg-c4 hover:bg-c4  text-slate-100 w-full mt-2">add another option</button>
     </div>
   </article >
 }

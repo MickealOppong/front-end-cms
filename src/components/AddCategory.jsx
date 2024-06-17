@@ -24,7 +24,7 @@ const AddCategory = ({ categories }) => {
     setArray((Array.from({ length: newArr.length })))
     dispatch(removeIndex({ i, type: 'category' }))
   }
-  return <article className="bg-white w-[30vw] flex flex-col py-4 border-2 rounded-md shadow-md" >
+  return <article className="bg-white full flex flex-col py-4 border-2 rounded-md shadow-md" >
     <div>
       {
         array.map((_, index) => {
@@ -51,7 +51,7 @@ const AddCategory = ({ categories }) => {
         let newCounter = counter + 1;
         setCounter(() => newCounter)
         setArray(() => Array.from({ length: newCounter }))
-      }} className="btn bg-c4  hover:bg-c4  text-slate-100 w-80 mt-2">add another category</button>
+      }} className="btn bg-c4  hover:bg-c4  text-slate-100 w-full mt-2">add another category</button>
     </div>
   </article >
 }

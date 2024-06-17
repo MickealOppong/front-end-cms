@@ -66,18 +66,17 @@ const EditCategory = () => {
   const { id, name, description, quantity, sale } = category;
 
 
-  return <section className={`mt-8 h-[200vh] ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8`
+  return <section className={`mt-24 lg:mt-8 h-[150vh] w-full px-8 max-w-5xl mx-auto`
   }>
     <div className="text-black font-semibold uppercase mb-8">
       <h2>Edit Category details</h2>
     </div>
     <Form method="post" className="flex flex-col gap-y-8 ">
-      <div className="flex items-start justify-between bg-white p-4">
+      <div className="flex flex-col lg:flex-row gap-y-4 items-start justify-between bg-white p-4">
         <div className="flex flex-col">
           <h2>Category information</h2>
         </div>
-
-        <div className="flex flex-col gap-y-4 w-1/2">
+        <div className="flex flex-col gap-y-4 w-full lg:w-1/2">
           {/**NAME */}
           <FormInput label='Name' defValue={name} name='name' type='text' />
 

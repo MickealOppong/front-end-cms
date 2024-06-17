@@ -32,49 +32,51 @@ const ViewCategory = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
   const { singleCategory } = useLoaderData();
   const { id, name, description, createdAt, createdBy, modifiedAt, modifiedBy, quantity, sale } = singleCategory;
-  return <section className={`mt-8 h-[200vh] ${showSidebar ? 'w-[80vw]' : 'w-[100vw]'} px-8`
+
+
+
+
+  return <section className={`mt-24 lg:mt-8 max-w-6xl mx-auto w-full px-8`
   }>
 
     <div className="text-black font-semibold uppercase mb-8">
       <h2>Category information</h2>
     </div>
     <article className="flex flex-col gap-y-8 ">
-      <div className="flex items-start justify-between bg-white p-4">
+      <div className="flex  flex-col lg:flex-row gap-y-4 items-start justify-between bg-white p-4">
         <div className="flex flex-col">
           <h2>Category information</h2>
         </div>
-
-        <div className="flex flex-col gap-y-4 w-1/2">
+        <div className="flex flex-col gap-y-4 w-full">
           {/** NAME */}
-          <div className="flex flex-col gap-y-2 w-96">
+          <div className="flex flex-col gap-y-2 w-full">
             <span>Identifier</span>
             <p className="border-2 p-2 rounded-xl indent-2 capitalize">{name}</p>
           </div>
 
           {/** DESCRIPTION*/}
-          <div className="flex flex-col gap-y-2 w-96">
+          <div className="flex flex-col gap-y-2 w-full">
             <span>Description</span>
             <p className="border-2 p-2 rounded-xl indent-2 capitalize">{description}</p>
           </div>
         </div>
-
       </div>
 
-      <div className="flex items-start justify-between bg-white p-4">
-        <div>
+      <div className="flex flex-col lg:flex-row gap-y-4 items-start justify-between bg-white p-4">
+        <div className="flex flex-col">
           <h2>Transaction information</h2>
         </div>
-        <div className="flex flex-col gap-y-4 w-1/2">
+        <div className="flex flex-col gap-y-4 w-full">
           {/** QUANTITY PURCHASED */}
-          <div className="flex flex-col gap-y-2 w-96">
+          <div className="flex flex-col gap-y-2">
             <span>Quantity</span>
-            <p className="border-2 p-2 rounded-xl indent-2 capitalize">{quantity}</p>
+            <p className="border-2 p-2 rounded-xl indent-2 capitalize h-10">{quantity}</p>
           </div>
 
           {/** QUANTITY SOLD */}
-          <div className="flex flex-col gap-y-2 w-96">
+          <div className="flex flex-col gap-y-2 w-full">
             <span>Sold</span>
-            <p className="border-2 p-2 rounded-xl indent-2 capitalize">{sale}</p>
+            <p className="border-2 p-2 rounded-xl indent-2 capitalize h-10">{sale}</p>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 
 const FormInput = ({ type, name, size, label, placeholder, defValue }) => {
-  return <label className="form-control w-full max-w-xs">
+  return <label className="form-control w-full">
     <div className="label">
       <span className="label-text font-semibold capitalize mb-4 flex items-center">{label}
       </span>

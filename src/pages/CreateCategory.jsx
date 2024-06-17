@@ -31,7 +31,7 @@ const CreateCategory = () => {
     return `${showSidebar ? 'lg:max-w-3xl mx-auto  ' : 'lg:max-w-4xl mx-auto'}`
   }
 
-  return <section className={`mt-24 lg:mt-8 h-[100vh] max-w-6xl mx-auto w-11/12 `
+  return <section className={`mt-24 lg:mt-8 max-w-6xl mx-auto w-11/12 `
   }>
     <div className="text-black font-semibold uppercase mb-8 w-[60vw]">
       <h2>create categories</h2>
