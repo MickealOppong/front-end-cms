@@ -24,7 +24,7 @@ const AddCategory = ({ categories }) => {
     setArray((Array.from({ length: newArr.length })))
     dispatch(removeIndex({ i, type: 'category' }))
   }
-  return <article className="bg-white full flex flex-col py-4 border-2 rounded-md shadow-md" >
+  return <article className="bg-white full flex flex-col  py-4 border-2 rounded-md shadow-md" >
     <div>
       {
         array.map((_, index) => {

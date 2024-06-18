@@ -46,7 +46,7 @@ const Products = () => {
   }
 
 
-  return <section className={`mt-36 lg:mt-8 h-[300vh] px-8 ${showSidebar ? 'max-w-6xl mr-8' : 'max-w-8xl'} mx-auto w-full`
+  return <section className={`mt-36 lg:mt-8 h-[300vh] px-8 ${showSidebar ? 'max-w-6xl mr-8' : 'max-w-8xl'} duration-300 mx-auto w-full`
   }>
     <div className={`flex flex-col gap-y-4 md:flex-row bg-white lg:gap-x-2 md:justify-between p-4 border-2 rounded w-full`}>
       <Form className="flex flex-col md:flex-row items-center  gap-x-4 lg:px-4 w-full">

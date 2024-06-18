@@ -27,10 +27,10 @@ const SimpleSelect = ({ size, data, defaultValue, name, index }) => {
 
   return <article className={`${size ?? 'w-56'} relative`} >
     <div className="flex justify-between border-[1px] rounded-md p-2" data-id="select" onClick={() => setToggle(true)} >
-      <input value={value} onChange={() => setInputValue(value)} className="outline-none w-[80%] capitalize text-gray-700" name={name} data-id="select" />
+      <input value={value} onChange={() => setInputValue(value)} className="outline-none w-full capitalize text-gray-700  p-2" name={name} data-id="select" />
       <button type="button" className="text-gray-700" data-id="select" ><AiFillCaretDown data-id="select" /></button>
     </div>
-    <div className={`flex flex-col absolute -top-1/2 bg-white ${size} mt-2 border-[1px] overflow-auto no-scrollbar h-36 rounded-md ${toggle ? 'flex' : 'hidden'}`} data-id="select">
+    <div className={`flex flex-col absolute -top-1/2 ${size} mt-2 border-[1px] overflow-auto no-scrollbar h-36 rounded-md ${toggle ? 'flex' : 'hidden'}`} data-id="select">
       {
         data.map((i) => {
           return <div key={i} onClick={() => handleClick(i)} className={`flex flex-col capitalize hover:bg-slate-100 text-gray-700 p-2 ${size}`} >
