@@ -36,7 +36,7 @@ const ViewCategory = () => {
 
 
 
-  return <section className={`mt-24 lg:mt-8 max-w-6xl mx-auto w-full px-8`
+  return <section className={`mt-24 h-[150vh] lg:mt-8 max-w-6xl mx-auto ${showSidebar ? 'w-[95%]' : 'w-full '} px-8`
   }>
 
     <div className="text-black font-semibold uppercase mb-8">
@@ -44,7 +44,7 @@ const ViewCategory = () => {
     </div>
     <article className="flex flex-col gap-y-8 ">
       <div className="flex  flex-col lg:flex-row gap-y-4 items-start justify-between bg-white p-4">
-        <div className="flex flex-col">
+        <div className="flex flex-col md:w-full">
           <h2>Category information</h2>
         </div>
         <div className="flex flex-col gap-y-4 w-full">
@@ -63,7 +63,7 @@ const ViewCategory = () => {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-y-4 items-start justify-between bg-white p-4">
-        <div className="flex flex-col">
+        <div className="flex flex-col md:w-full">
           <h2>Transaction information</h2>
         </div>
         <div className="flex flex-col gap-y-4 w-full">

@@ -79,7 +79,7 @@ const Navbar = () => {
       <button onClick={() => dispatch(toggle())}><FaBarsStaggered /></button>
     </div>
     {/** SEARCH INPUT */}
-    <div className='hidden md:flex'>
+    <div className='hidden '>
       <SearchInput size='w-80 lg:w-96' />
     </div>
 

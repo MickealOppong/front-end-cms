@@ -28,7 +28,7 @@ export const formatPriceLocale = (price, iso, fx) => {
   const formattedPrice = new Intl.NumberFormat(iso, {
     style: 'currency',
     currency: iso
-  }).format(parseFloat(price / fx).toFixed(2))
+  }).format(parseFloat(price * fx).toFixed(2))
   return formattedPrice;
 }
 

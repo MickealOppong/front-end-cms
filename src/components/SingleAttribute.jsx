@@ -47,17 +47,17 @@ const SingleAttribute = ({ attributes }) => {
             <div className="mr-8 w-56 capitalize text-gray-500">
               <p>{name}</p>
             </div>
-            <div className="hidden lg:flex gap-x-2 w-[30vw] text-gray-500">
+            <div className="hidden lg:grid lg:grid-cols-5 gap-x-2 w-[50vw] text-gray-500">
               {
                 productSKU.map((item, index) => {
                   const { id, skuValue } = item;
-                  return <div key={id} className={`flex gap-x-2 capitalize`}>
+                  return <div key={id} className={`flex gap-x-2 capitalize `}>
                     <p >{index > 0 ? `,${skuValue}` : `${skuValue}`}</p>
                   </div>
                 })
               }
             </div>
-            <div className="flex gap-x-4 text-xl">
+            <div className="flex gap-x-4 text-xl items-center">
               <Link to={`/viewAttribute/${id}`} className="text-sky-700"><FaEye /></Link>
               <Link to={`/editAttribute/${id}`} className="text-emerald-700"><CiEdit /></Link>
               <button className="text-red-700" onClick={() => deleteAttribute(id)}><RiDeleteBin6Line /></button>

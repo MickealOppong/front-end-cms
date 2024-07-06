@@ -51,9 +51,9 @@ const Products = () => {
     <div className={`flex flex-col gap-y-4 md:flex-row bg-white lg:gap-x-2 md:justify-between p-4 border-2 rounded w-full`}>
       <Form className="flex flex-col md:flex-row items-center  gap-x-4 lg:px-4 w-full">
         {/**PAGE SIZE  */}
-        <div className="hidden lg:flex gap-x-2 items-center">
+        <div className="hidden gap-x-2 items-center">
           <span className="text-slate-400">showing</span>
-          <SimpleSelect size={'w-16'} data={[5, 10, 15, 20]} defaultValue={pageSize} name={'pageSize'} />
+          <SimpleSelect size={'w-20'} data={[5, 10, 15, 20]} defaultValue={pageSize} name={'pageSize'} />
         </div>
         {/**SEARCH */}
         <div className="flex items-center border-2 p-2 rounded-md w-full md:w-96 ">

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { AddCategory, AddVariant, FormInput, FormInputMandate, SimpleSelect, TextArea } from "../components/index";
+import { AddCategory, AddVariant, CheckboxInput, FormInput, FormInputMandate, SimpleSelect, TextArea } from "../components/index";
 import { clear } from "../features/data/selectSlice";
 import { customFetch } from "../util";
 //form data for storing array of images
@@ -83,7 +83,12 @@ const CreateProduct = () => {
     formData.append('files', JSON.stringify(imageData))
     formData.append('attributes', JSON.stringify(attributeList))
     formData.append('categories', JSON.stringify(categoryList))
+
     const data = Object.fromEntries(formData);
+    if (data.freeShipping === 'on') { data.freeShipping = true }
+    if (data.featuredProduct === 'on') { data.featuredProduct = true }
+
+
     console.log(data);
     try {
       const response = await customFetch.post(`/api/products/product`,
@@ -128,6 +133,10 @@ const CreateProduct = () => {
 
               {/**FEATURES*/}
               <TextArea name='features' placeholder='Features' styles={`${width()} h-24`} />
+
+              <CheckboxInput name={'freeShipping'} label={'Free shipping'} style={'mt-4 w-full uppercase'} />
+
+              <CheckboxInput name={'featuredProduct'} label={'Featured product'} style={'mt-4 w-full uppercase'} />
             </div>
 
           </div>
@@ -153,7 +162,7 @@ const CreateProduct = () => {
       </div>
 
       {/** VENDOR DETAILS */}
-      <div className="flex flex-col w-full  p-8 mt-10 gap-8 md:w-1/2  bg-white
+      <div className="hidden flex-col w-full  p-8 mt-10 gap-8 md:w-1/2  bg-white
          ">
 
         <div className="flex flex-col w-full ">

@@ -1,5 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
+import { FiEdit3 } from "react-icons/fi";
 import { LiaTimesSolid } from "react-icons/lia";
 import { useSelector } from "react-redux";
 import { customFetch, formatPriceLocale } from "../util";
@@ -59,10 +60,10 @@ const SingleProduct = ({
     </div>
 
     {/** ACTIONS */}
-    <div className={`flex w-80 gap-x-1 absolute top-8  ${showItems ? `${showSidebar ? 'opacity-100 left-[71%]' : 'opacity-100 left-[69%]'}` : 'opacity-0 left-[80%]'} duration-300`} >
-      <div className="flex items-center justify-center bg-emerald-400  w-8 h-6">
+    <div className={`flex w-80 gap-x-1 absolute top-[4%]  ${showItems ? 'left-0 opacity-100' : '-left-full opacity-0'} duration-300`} >
+      <div className="flex items-center justify-center bg-emerald-400  w-8 h-8 text-slate-100"><FiEdit3 />
       </div>
-      <div className="flex items-center  justify-center bg-red-400 text-xs w-8 h-6 text-gray-100">
+      <div className="flex items-center  justify-center bg-red-400 text-xs w-8 h-8 text-gray-100">
         <button onClick={() => handleDelete(id)}><LiaTimesSolid /></button>
       </div>
     </div>
