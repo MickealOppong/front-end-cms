@@ -3,6 +3,7 @@ import logo from '../assets/web-shopping.svg';
 
 const Landing = () => {
 
+
   return <section className="mt-10">
     <nav className="px-8 flex items-center md:max-w-6xl md:mx-auto" >
       <div className="flex items-center justify-center text-slate-100 rounded-md  w-14 h-14 btn btn-secondary text-3xl">

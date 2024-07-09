@@ -5,7 +5,6 @@ import { RiDeleteBin5Line } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { customFetch } from "../util";
-
 const array = [];
 const editAttributeQuery = (id, token) => {
   return {
@@ -44,8 +43,10 @@ const EditAttribute = () => {
   const { attributeData } = useLoaderData();
   const { id, name, productSKU } = attributeData;
   const [visible, setVisible] = useState(false);
-  const [readOnly, setReadOnly] = useState(true);
+  const [readOnly, setReadOnly] = useState(new Array(productSKU.length).fill(true))
+
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)
+
   const token = useSelector((state) => state.userState.token)
   const queryClient = useQueryClient();
   const navigate = useNavigate();
@@ -62,6 +63,7 @@ const EditAttribute = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['attributes'] })
       queryClient.invalidateQueries({ queryKey: ['editAttribute'] })
+      queryClient.removeQueries({ queryKey: ['viewAttribute'] })
       setVisible(!visible)
       navigate(`/editAttribute/${id}`)
     },
@@ -70,7 +72,8 @@ const EditAttribute = () => {
     }
   })
 
-  const updateAttribute = async (id, data) => {
+  const updateAttribute = async (id, data, index) => {
+    // console.log(data);
     try {
       const response = await customFetch.patch(`/api/products/attribute/${id}`, JSON.stringify(data), {
         params: {
@@ -81,12 +84,13 @@ const EditAttribute = () => {
           "Content-Type": 'application/json'
         }
       })
+      console.log(response);
       queryClient.invalidateQueries({ queryKey: ['attributes'] })
       queryClient.invalidateQueries({ queryKey: ['editAttribute'] })
-      navigate(`/editAttribute/${id}`)
-      setReadOnly(!readOnly)
+      navigate(`/Attributes`)
+
     } catch (error) {
-      console.log(error); xs
+      console.log(error);
     }
   }
 
@@ -103,6 +107,7 @@ const EditAttribute = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['attributes'] })
       queryClient.invalidateQueries({ queryKey: ['editAttribute'] })
+      queryClient.removeQueries({ queryKey: ['viewAttribute'] })
       setVisible(!visible)
       navigate(`/editAttribute/${id}`)
     }
@@ -114,29 +119,47 @@ const EditAttribute = () => {
     formData.append
       ('name', name)
     const data = Object.fromEntries(formData);
-    console.log(data);
+    //console.log(data);
     addAttribute(data)
   }
 
-  const handleUpdate = (e) => {
+  const handleUpdate = (e, id, index) => {
     e.preventDefault();
     const formData = new FormData(e.target)
     const data = Object.fromEntries(formData);
     updateAttribute(id, data)
-    setReadOnly(true)
+    console.log(id);
+    const newArray = readOnly.map((isReadOnly, location) => {
+      if (location === index) {
+        isReadOnly = !isReadOnly;
+      } else {
+        isReadOnly = true;
+      }
+      return isReadOnly;
+    })
+    setReadOnly(() => newArray);
   }
   const handleDelete = (e, id) => {
     e.preventDefault();
-    console.log(id);
     deleteSku(id)
   }
 
-  const handleEdit = (e) => {
+  const handleEdit = (e, index) => {
     e.preventDefault();
-    setReadOnly(!readOnly)
+    const newArray = readOnly.map((isReadOnly, location) => {
+      if (location === index) {
+        isReadOnly = !isReadOnly;
+      } else {
+        isReadOnly = true;
+      }
+      return isReadOnly;
+    })
+    setReadOnly(() => newArray);
+    console.log(readOnly[index]);
   }
 
-  return <section className={`mt-24 lg:mt-8 h-[250vh] px-8 max-w-6xl mx-auto`
+
+  return <section className={`mt-24 lg:mt-8 h-[250vh] px-8 max-w-6xl mx-auto w-11/12`
   }>
     <div className={`text-black font-semibold uppercase mb-8`}>
       <h2>Attribute information</h2>
@@ -147,15 +170,15 @@ const EditAttribute = () => {
         <p>{name}</p>
         <div className="mt-10 flex flex-col gap-y-4 w-full">
           {
-            productSKU.map((sku) => {
+            productSKU.map((sku, index) => {
               const { id, description, skuValue, quantity, price } = sku;
-              return <form className="flex flex-col gap-y-2 border-2 rounded-md shadow-md p-4 " method="post" key={id} onSubmit={(e) => handleUpdate(e, id)}>
+              return <form className="flex flex-col gap-y-2 border-2 rounded-md shadow-md p-4 " method="post" key={id} onSubmit={(e) => handleUpdate(e, id, index)}>
                 <div className="grid grid-cols-2 p-2 gap-y-2 text-xs">
-                  <input name={'description'} placeholder="description" className={`capitalize outline-none w-60 ${readOnly ? '' : 'border-2 p-2 rounded-md'}`} defaultValue={description} readOnly={readOnly} />
-                  <input name={'value'} placeholder="value" className={`capitalize outline-none w-60 ${readOnly ? '' : 'border-2 p-2 rounded-md'}`} defaultValue={skuValue} readOnly={readOnly} />
+                  <input name={'description'} placeholder="description" className={`capitalize outline-none w-60 ${readOnly[index] ? '' : 'border-2 p-2 rounded-md'}`} defaultValue={description} readOnly={readOnly[index]} />
+                  <input name={'value'} placeholder="value" className={`capitalize outline-none w-60 ${readOnly[index] ? '' : 'border-2 p-2 rounded-md'}`} defaultValue={skuValue} readOnly={readOnly[index]} />
                 </div>
                 <div className="mt-2 flex gap-x-4 w-full">
-                  <button onClick={(e) => handleEdit(e)}><CiEdit /></button>
+                  <button onClick={(e) => handleEdit(e, index)}><CiEdit /></button>
                   <button onClick={(e) => handleDelete(e, id)}><RiDeleteBin5Line /></button>
                   <button>save</button>
                 </div>
@@ -163,7 +186,6 @@ const EditAttribute = () => {
             })
           }
         </div>
-
         <div>
           {
             visible ? <form className="flex flex-col gap-y-2 border-2 rounded-md shadow-md p-4 mt-4 text-sm" onSubmit={handleSubmit}>

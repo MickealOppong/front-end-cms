@@ -21,7 +21,6 @@ export const loader = (store, queryClient) => async ({ params }) => {
   const response = await queryClient.ensureQueryData(viewAttributeQuery(id, token));
   const singleAttribute = response
     .data;
-  //console.log(response);
   return {
     singleAttribute
   }
@@ -32,14 +31,14 @@ const ViewAttribute = () => {
   //console.log(singleAttribute);
 
   const { id, name, productSKU } = singleAttribute;
-  return <section className={`mt-24 lg:mt-8 h-[120vh] px-8 max-w-6xl mx-auto lg:w-[60vw] `
+  return <section className={`mt-24 lg:mt-8 h-[120vh] px-8 max-w-6xl mx-auto lg:w-[70vw] `
   }>
     <div className="text-black font-semibold uppercase mb-8">
       <h2>Attribute information</h2>
     </div>
     <article className="flex flex-col gap-y-8 ">
       <div className="flex  flex-col lg:flex-row items-start justify-between gap-y-4 lg:gap-x-8 bg-white p-4">
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full">
           <h2>Attribute </h2>
         </div>
         <div className="flex flex-col gap-y-4 w-full">
@@ -57,9 +56,10 @@ const ViewAttribute = () => {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4  w-1/2">
           {
             productSKU.map((sku) => {
-              const { id, skuValue } = sku;
+              const { id, skuValue, description } = sku;
               return <div key={id} className="flex flex-col text-slate-500 capitalize">
-                <span className="w-6 h-6 rounded-xl" style={{ backgroundColor: `${skuValue}` }}></span>
+                <span className={`w-6 h-6 rounded-xl ${name === 'Colour' ? 'flex' : 'hidden'}`} style={{ backgroundColor: `${skuValue}` }}></span>
+                <span className={` ${name === 'Colour' ? 'hidden' : 'flex'}`} >{description}</span>
                 <p>{skuValue}</p>
               </div>
             })

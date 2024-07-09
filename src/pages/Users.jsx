@@ -1,6 +1,6 @@
 import { FaPlus, FaSearch } from "react-icons/fa";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { PaginationContainer, UsersContainer } from "../components/index";
 import { updateUser } from "../features/user/userSlice";
 import { customFetch } from '../util/index';
@@ -19,18 +19,25 @@ const usersQuery = (page, token) => {
 export const loader = (store, queryClient) => async ({ request }) => {
   const token = store.getState().userState.token;
   const params = Object.fromEntries([...new URL(request.url).searchParams.entries()]);
+  try {
 
-  const response = await queryClient.ensureQueryData(usersQuery(params.id, token))
-  //console.log(response.data);
-  const users = response.data.content;
-  const user = store.getState().userState.user;
-  const item = users.find((i) => i.id === user.id)
-  store.dispatch(updateUser(item))
-  const page = response.data.number;
-  const pageCount = response.data.totalPages;
-  const size = response.data.size;
-  const totalElements = response.data.totalElements;
-  return { users, page, pageCount, size, totalElements }
+    const response = await queryClient.ensureQueryData(usersQuery(params.id, token))
+    //console.log(response.data);
+    const users = response.data.content;
+    const user = store.getState().userState.user;
+    const item = users.find((i) => i.id === user.id)
+    store.dispatch(updateUser(item))
+    const page = response.data.number;
+    const pageCount = response.data.totalPages;
+    const size = response.data.size;
+    const totalElements = response.data.totalElements;
+    return { users, page, pageCount, size, totalElements }
+  } catch (error) {
+    if (error.response.status === 401 || error.response.status === 403) {
+      return redirect("/login")
+    }
+    return null;
+  }
 }
 const Users = () => {
   const showSidebar = useSelector((state) => state.sidebarState.showSidebar)

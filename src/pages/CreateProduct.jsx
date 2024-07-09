@@ -189,7 +189,7 @@ const CreateProduct = () => {
           </div>
         </div>
       </div>
-      <div className={`flex flex-col gap-8 w-full mt-10 md:absolute md:top-[12%] md:right-[0%] md:left-[50%] md:w-[30rem]  `}>
+      <div className={`flex flex-col gap-8 w-full mt-10 md:absolute md:top-[20%] md:right-[0%] md:left-[50%] md:w-[30rem] lg:top-[12%]  `}>
 
         {/**IMAGE */}
         <div className="flex flex-col  gap-y-4 w-full p-8 mt-10 ">

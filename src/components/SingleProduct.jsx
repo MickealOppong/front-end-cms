@@ -36,7 +36,9 @@ const SingleProduct = ({
       </div>
       <div className="flex flex-col gap-y-2 w-full p-4  text-slate-600">
         <p className="uppercase">{name}</p>
-        <div className="flex items-center gap-x-2 capitalize">
+
+        {/**
+          <div className="flex items-center gap-x-2 capitalize">
           <span>categories :</span>
           <div className="flex items-center gap-x-2">
             {
@@ -47,6 +49,8 @@ const SingleProduct = ({
             }
           </div>
         </div>
+         */}
+
         <div className="flex justify-between items-center w-full">
           <div className="flex items-center gap-x-2">
             <span className="text-gray-400">Stock :</span>

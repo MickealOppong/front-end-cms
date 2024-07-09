@@ -47,12 +47,12 @@ const SingleAttribute = ({ attributes }) => {
             <div className="mr-8 w-56 capitalize text-gray-500">
               <p>{name}</p>
             </div>
-            <div className="hidden lg:grid lg:grid-cols-5 gap-x-2 w-[50vw] text-gray-500">
+            <div className="hidden lg:grid lg:grid-cols-5 gap-x-2 w-[50vw] text-gray-500 mr-8 -ml-8">
               {
                 productSKU.map((item, index) => {
-                  const { id, skuValue } = item;
+                  const { id, description, skuValue } = item;
                   return <div key={id} className={`flex gap-x-2 capitalize `}>
-                    <p >{index > 0 ? `,${skuValue}` : `${skuValue}`}</p>
+                    <p>{description}</p>
                   </div>
                 })
               }

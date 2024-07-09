@@ -20,14 +20,21 @@ const viewUserQuery = (id, token) => {
 
 }
 export const loader = (store, queryClient) => async ({ params }) => {
-  const token = store.getState().userState.token;
-  const { id } = params;
-  const response = await queryClient.ensureQueryData(viewUserQuery(id, token))
-  console.log(response.data);
-  const userInfo = response
-    .data;
-  return {
-    userInfo
+  try {
+    const token = store.getState().userState.token;
+    const { id } = params;
+    const response = await queryClient.ensureQueryData(viewUserQuery(id, token))
+    console.log(response.data);
+    const userInfo = response
+      .data;
+    return {
+      userInfo
+    }
+  } catch (error) {
+    if (error.response.status === 401 || error.response.status === 403) {
+      return redirect("/login")
+    }
+    return null;
   }
 }
 const ViewUser = () => {

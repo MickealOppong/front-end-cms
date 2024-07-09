@@ -34,7 +34,7 @@ export const action = (store, queryClient) => async ({ request, params }) => {
   const data = Object.fromEntries(formData);
   const { username, fullname, password, file, role, gender, telephone, accountNonExpired, accountNonLocked, credentialsNonExpired, enabled, street, zipCode, image, city } = data
   const { id } = params;
-  console.log(data);
+
 
   if (data.accountNonExpired === 'on') { data.accountNonExpired = true }
   if (data.accountNonLocked === 'on') { data.accountNonLocked = true }

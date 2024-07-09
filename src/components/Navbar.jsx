@@ -83,7 +83,7 @@ const Navbar = () => {
       <SearchInput size='w-80 lg:w-96' />
     </div>
 
-    <div className="flex items-center gap-x-4">
+    <div className="flex items-center gap-x-12">
 
       {/** CURRENCY */}
       <form className="flex w-24" onSubmit={handleForm}>

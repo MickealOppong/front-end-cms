@@ -33,9 +33,6 @@ const ViewCategory = () => {
   const { singleCategory } = useLoaderData();
   const { id, name, description, createdAt, createdBy, modifiedAt, modifiedBy, quantity, sale } = singleCategory;
 
-
-
-
   return <section className={`mt-24 h-[150vh] lg:mt-8 max-w-6xl mx-auto ${showSidebar ? 'w-[95%]' : 'w-full '} px-8`
   }>
 

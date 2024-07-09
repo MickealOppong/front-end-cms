@@ -21,6 +21,7 @@ export const loader = (store, queryClient) => async ({ request }) => {
   //console.log(params);
   try {
     const response = await queryClient.fetchQuery(productsQuery(params, token))
+    console.log(response);
     const products = response?.data?.products;
     const page = response?.data?.page;
     const pageCount = response?.data?.PageCount;

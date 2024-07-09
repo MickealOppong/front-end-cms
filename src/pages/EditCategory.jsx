@@ -52,6 +52,7 @@ export const action = (store, queryClient) => async ({ request, params }) => {
   const formData = await request.formData();
   const data = Object.fromEntries(formData);
   const { id } = params;
+  console.log(data);
   const response = await updateCategory(id, token, data);
   console.log(response);
   //queryClient.setQueryData(['category', id], response)
