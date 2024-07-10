@@ -7,7 +7,7 @@ export const action = (store, queryClient) => async ({ request }) => {
   const formData = await request.formData();
   const { name, description, icon } = Object.fromEntries(formData);
   const token = store.getState().userState.token;
-  console.log(name, description, icon);
+  //console.log(name, description, icon);
   try {
     const response = await customFetch.post('/api/products/categories', { name, description, icon }, {
       headers: {

@@ -1,14 +1,18 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CiEdit } from "react-icons/ci";
 import { FaEye } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { customFetch } from "../util";
 const SingleCurrency = ({ recId, currency, iso, createdAt }) => {
+  const token = useSelector((state) => state.userState.token)
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
-  const { mutate: handleDelete } = useMutation({
+  const { mutate: deleteCurrency } = useMutation({
     mutationKey: ['categories'],
-    mutationFn: (recId) => customFetch.delete(`/api/products/category/${recId}`, {
+    mutationFn: (recId) => customFetch.delete(`/api/currency/delete`, {
       params: {
         recId
       },
@@ -18,10 +22,12 @@ const SingleCurrency = ({ recId, currency, iso, createdAt }) => {
     }),
     onSuccess: () => {
       //queryClient.removeQueries(['categories'])
-      queryClient.invalidateQueries({ queryKey: ['categories'] })
-      return navigate('/categories')
+      queryClient.removeQueries(['currencies'])
+      return navigate('/currencies')
     },
-    onError: (err) => { console.log(err); }
+    onError: (err) => {
+
+    }
 
   })
   return <article className="flex capitalize text-slate-600 text-sm" >
@@ -41,7 +47,7 @@ const SingleCurrency = ({ recId, currency, iso, createdAt }) => {
     <div className="flex gap-x-4 items-center ">
       <Link to={`/fxRates/${recId}`} className="text-sky-600"><FaEye /></Link>
       <Link to={`/addRate/${recId}`} className="text-emerald-500"><CiEdit /></Link>
-      <button className="text-red-700" onClick={() => handleDelete(recId)}><RiDeleteBin6Line /></button>
+      <button className="text-red-700" onClick={() => deleteCurrency(recId)}><RiDeleteBin6Line /></button>
     </div>
   </article>
 }

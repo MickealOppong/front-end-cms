@@ -1,27 +1,33 @@
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { CiEdit } from "react-icons/ci";
 import { FaEye } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { customFetch } from "../util";
 import DefaultImage from "./DefaultImage";
 const User = ({ id, fullname, username, image, telephone }) => {
   const token = useSelector((state) => state.userState.token)
-  const handleDelete = async (id) => {
-    try {
-      const response = await customFetch.delete(`/api/users/${id}`, {
-        params: {
-          id
-        },
-        headers: {
-          Authorization: `Bearer ${token}`
-        }
-      })
-      console.log(response);
-    } catch (error) {
-      console.log(error);
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+
+  const { mutate: deleteUser } = useMutation({
+    mutationFn: (id) => customFetch.delete(`/api/users/${id}`, {
+      params: {
+        id
+      },
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }),
+    onSuccess: () => {
+      queryClient.removeQueries(['users'])
+      navigate('/users')
+    },
+    onError: () => {
+
     }
-  }
+  })
 
   return <div>
 
@@ -49,7 +55,7 @@ const User = ({ id, fullname, username, image, telephone }) => {
       <div className="flex w-80 gap-x-4 ">
         <Link to={`/viewUser/${id}`} className="text-sky-600" ><FaEye /></Link>
         <Link to={`/editUser/${id}`} className="text-emerald-500 link link-primary" ><CiEdit /></Link>
-        <button className="text-red-700" onClick={() => handleDelete(id)}><RiDeleteBin6Line /></button>
+        <button className="text-red-700" onClick={() => deleteUser(id)}><RiDeleteBin6Line /></button>
       </div>
     </div>
   </div>
