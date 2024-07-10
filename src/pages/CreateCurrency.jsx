@@ -34,10 +34,10 @@ const CreateCurrency = () => {
     <Form method="post" className="flex flex-col gap-8 bg-white border-2 w-full py-4 px-6 md:px-16 lg:px-24" encType="multipart/form-data" >
 
       {/**CATEGORY NAME */}
-      <FormInputMandate label='Currency Name' name='currency' type='text' placeholder='Enter currency name' size={'w-[80vw] md:w-[70vw] lg:w-[60vw]'} />
+      <FormInputMandate label='Currency Name' name='currency' type='text' placeholder='Enter currency name' size={'w-[80vw] md:w-[70vw] lg:w-full'} />
 
       {/**CATEGORY DESCRIPTION */}
-      <FormInputMandate label='Currency ISO' name='iso' type='text' placeholder='Enter currency name' size={'w-[80vw] md:w-[70vw] lg:w-[60vw]'} />
+      <FormInputMandate label='Currency ISO' name='iso' type='text' placeholder='Enter currency name' size={'w-[80vw] md:w-[70vw] lg:w-full'} />
       <div className="flex items-start">
         <button className="btn btn-secondary w-36">save</button>
       </div>
