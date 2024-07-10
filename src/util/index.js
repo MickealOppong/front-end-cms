@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const customFetch = axios.create({
-  baseURL: 'http://localhost:3000'
+  baseURL: 'http://cms-backen-api-production.up.railway.app'
 })
 
 export const getFromLocalStorage = (item) => {
