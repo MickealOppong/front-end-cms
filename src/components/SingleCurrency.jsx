@@ -12,7 +12,7 @@ const SingleCurrency = ({ recId, currency, iso, createdAt }) => {
 
   const { mutate: deleteCurrency } = useMutation({
     mutationKey: ['categories'],
-    mutationFn: (recId) => customFetch.delete(`/api/currency/delete`, {
+    mutationFn: (recId) => customFetch.delete(`/api/currency/deleteCurrency`, {
       params: {
         recId
       },
