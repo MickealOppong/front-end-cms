@@ -10,7 +10,7 @@ const MenuItem = ({ icon, title, id, links }) => {
   return <div key={id} >
     <div onClick={() => setShowLink(!showLink)} className="collapse collapse-plus -mt-4">
       <input type="radio" name="my-accordion-3" defaultChecked />
-      <div className="collapse-title text-sm capitalize font-medium w-56 ">
+      <div className="collapse-title text-sm capitalize font-medium ">
         <div className="flex items-center gap-x-2">
           <span className="text-xl">{icon}</span>
           <h2 className="text-md">{title}</h2>
