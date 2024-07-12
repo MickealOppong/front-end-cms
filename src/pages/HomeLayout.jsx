@@ -23,7 +23,7 @@ const HomeLayout = () => {
     </div>
     <div className={`flex flex-col lg:fixed 
      min-h-[100vh]
-   lg:top-0 ${showSidebar ? 'lg:left-80 lg:w-full' : 'lg:left-0 lg:w-full'} duration-300 lg:right-0 border-r-2 w-full`} >
+   lg:top-0 ${showSidebar ? 'lg:left-80 lg:w-[90%]' : 'lg:left-0 lg:w-full'} duration-300 lg:right-0 border-r-2 w-full`} >
       <Navbar />
       <div className={`flex bg-slate-100 sticky top-20 h-[100vh] overflow-y-scroll no-scrollbar`}>{
         isLoading ?
