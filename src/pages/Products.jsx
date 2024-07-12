@@ -47,10 +47,10 @@ const Products = () => {
   }
 
 
-  return <section className={`mt-36 lg:mt-8 h-[300vh] px-8`
+  return <section className={`mt-36 lg:mt-8 h-[300vh] px-8 w-11/12`
   }>
     <div className={`flex flex-col gap-y-4 md:flex-row bg-white lg:gap-x-2 md:justify-between p-4 border-2 rounded `}>
-      <Form className="flex flex-col md:flex-row items-center  gap-x-4 lg:px-4">
+      <Form className="flex flex-col md:flex-row items-center  gap-x-4 lg:px-4 w-full">
         {/**PAGE SIZE  */}
         <div className="hidden gap-x-2 items-center">
           <span className="text-slate-400">showing</span>
