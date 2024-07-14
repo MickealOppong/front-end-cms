@@ -25,8 +25,11 @@ export const action = (store) => async ({ request }) => {
   } catch (error) {
     if (error.response.status == 401) {
       return redirect('')
+    } else {
+      alert(error)
+      return null;
     }
-    return null;
+
   }
 }
 const Login = () => {
@@ -53,7 +56,7 @@ const Login = () => {
       localStorage.setItem('jwt', refreshToken);
       navigate('/')
     } catch (error) {
-
+      alert(error)
     }
   }
   return <section className="max-w-md mx-auto mt-36  border-2 p-12">
