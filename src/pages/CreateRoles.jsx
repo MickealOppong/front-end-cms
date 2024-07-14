@@ -96,7 +96,7 @@ const CreateRoles = () => {
 
     <form method="post" className={`flex flex-col gap-y-8   p-8 bg-white border-[1px] max-w-6xl mx-auto `} onSubmit={(e) => HandleUserRoles(e)}>
 
-      <FormInput label='Role name' type='text' name='roleName' size='w-[60vw]' />
+      <FormInput label='Role name' type='text' name='roleName' size='w-full' />
 
       <div className="text-md text-gray-700 font-semibold capitalize mb-4">
         <h2>permissions</h2>
