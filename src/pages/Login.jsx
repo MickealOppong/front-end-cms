@@ -10,7 +10,7 @@ export const action = (store) => async ({ request }) => {
   const data = Object.fromEntries(formData);
   //console.log(username, password);
   try {
-    const response = await customFetch.post('/api/auth/login/', JSON.stringify(data), {
+    const response = await customFetch.post('/api/auth/login', JSON.stringify(data), {
       headers: {
         "Content-Type": "application/json"
       }
@@ -44,7 +44,7 @@ const Login = () => {
       password: 'demo-user'
     }
     try {
-      const response = await customFetch.post('/api/auth/login/', JSON.stringify(data), {
+      const response = await customFetch.post('/api/auth/login', JSON.stringify(data), {
         headers: {
           "Content-Type": "application/json"
         }
